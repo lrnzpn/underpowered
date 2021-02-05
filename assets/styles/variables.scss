@@ -1,0 +1,22 @@
+/* font family */
+$header-font: 'Epilogue', sans-serif;
+$body-font: 'Poppins', sans-serif;
+
+/* palette */
+// TEXT
+$txt-lights-off: #FFFBEF;
+$txt-lights-on: #303030;
+// BACKGROUND
+$bg-starting-blue: #153460;
+$bg-lights-off: #021C33;
+$bg-lights-on: $txt-lights-off;
+$bg-gradient: linear-gradient(180deg, #01192F 9.02%, #808A8F 51.64%, #C6C8C4 75.17%, #FFFBEF 94.26%);
+
+// assets
+$asset-blue: #32558B;
+$asset-camo-green: #717855;
+$asset-light-grey: #404040;
+$asset-black: #121212;
+$asset-purple: #8772AD;
+$asset-yellow: #FBDE44;
+$asset-bp-gradient: linear-gradient(#32558b,#8772AD);
