@@ -1,62 +1,136 @@
 <template>
   <div>
-    <Nuxt />
+      <Navigation />
+      <div class="spacer"></div>
+        <Nuxt />
+        <Footer />
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+<script>
+import Navigation from '../components/Navigation'
+
+export default {
+    components: {
+        Navigation
+    }
+}
+</script>
+
+<style lang="scss">
+* {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    user-select: none;
+    position: relative;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+h1, h2, h3, h4, h5 {
+    font-family: $header-font;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+a, p, span, button {
+    font-family: $body-font;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.spacer {
+    height: 5em;
+    transition: height .5s ease-in-out;
+
+    @include screen('sm') {
+        height: 3.25em;
+    }
+}
+
+// fade
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+// slide down
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform 0.2s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateY(-100%);
+    transition: all 250ms ease-in 0s;
+}
+
+.nuxt-link-exact-active, .nuxt-link-active {
+    color: $asset-yellow !important;
+}
+
+.container {
+    max-width: 1440px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.btn {
+    border: 3px solid $bg-lights-on;
+    border-radius: 5px;
+    color: $bg-lights-on;
+    background-color: $asset-black;
+    font-size: $font-size--5;
+    width: 100%;
+    padding: .25em 2em;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.static {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.jc-space-between {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.center {
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>

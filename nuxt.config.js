@@ -17,7 +17,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
           rel: 'stylesheet',
-          href: "https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap"
+          href: "https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&family=Chivo:wght@300;400;700&display=swap"
       }
     ]
   },
@@ -42,6 +42,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    ['vue-scrollto/nuxt', {duration: 300, easing: "ease"}],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -54,5 +55,5 @@ export default {
         scss: [
             '~/assets/styles/*.scss',
         ]
-    }
+    },
 }
