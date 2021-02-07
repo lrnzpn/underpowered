@@ -11,7 +11,7 @@
           <Menu>
               <ul class="menu-nav">
                   <li v-for="(route,idx) in router" :key="idx">
-                      <nuxt-link :to="route.path" :class="{'nuxt-link-exact-active nuxt-link-active' : isUnplugged}">{{route.section}}</nuxt-link>
+                      <nuxt-link :to="route.path" >{{route.section}}</nuxt-link>
                   </li>
               </ul>
           </Menu>
@@ -37,27 +37,25 @@ export default {
                 },
                 {
                     section: 'Loading Screen',
-                    path: '/loading-screen'
+                    path: '/#loading-screen'
                 },
                 {
                     section: 'Pitch black',
-                    path: '/pitch-black'
+                    path: '/#pitch-black'
                 },
                 {
                     section: 'Go haywire',
-                    path: '/go-haywire'
+                    path: '/#go-haywire'
                 },
                 {
                     section: 'Lighting the Way',
-                    path: '/lighting-the-way'
+                    path: '/#lighting-the-way'
                 },
             ]
         }
     },
     computed: {
-        isUnplugged() {
-            return this.$route.path.includes('/#unplugged')
-        }
+        
     }
 }
 </script>
@@ -72,6 +70,7 @@ export default {
     .nav-header {
         height: 5em;
         transition: height .5s ease-in-out;
+        z-index: 999;
         @include screen('sm') {
             height: 3.25em;
         }
@@ -102,6 +101,10 @@ export default {
             font-size: $font-size--5;
             &:hover {
                 color: $asset-yellow;
+            }
+
+            @include screen('sm') {
+                font-size: $font-size--4;
             }
         }
     }

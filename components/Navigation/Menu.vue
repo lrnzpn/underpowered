@@ -62,7 +62,7 @@ export default {
   background-color: $asset-black;
   position: fixed;
   right: 0;
-  top: 5em;
+  top: 0;
   height: 100vh;
   z-index: 99;
   width: 33%;

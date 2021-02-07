@@ -34,6 +34,7 @@ body {
     width: 100%;
     height: 100%;
     scroll-behavior: smooth;
+    background-color: $bg-lights-off;
 }
 
 ul {
@@ -44,10 +45,31 @@ ul {
 
 h1, h2, h3, h4, h5 {
     font-family: $header-font;
+    font-weight: 700;
+    margin: 0;
+    color: $bg-lights-on;
+    letter-spacing: 0.08em;
+
+}
+
+h1 {
+    font-size: $font-size--8;
 }
 
 a, p, span, button {
+    color: $bg-lights-on;
     font-family: $body-font;
+}
+
+p {
+    font-size: $font-size--5;
+    line-height: 2em;
+    letter-spacing: 0.08em;
+    margin: 0;
+
+    a {
+        text-decoration: underline;
+    }
 }
 
 .spacer {
@@ -57,6 +79,14 @@ a, p, span, button {
     @include screen('sm') {
         height: 3.25em;
     }
+}
+
+.d-block {
+    display:block;
+}
+
+.w-50 {
+    width: 50%;
 }
 
 // fade
