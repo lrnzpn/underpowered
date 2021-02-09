@@ -29,7 +29,7 @@ export default {
     methods: {
         toggle() {
             this.$store.commit('toggleNav');
-            document.body.classList.toggle('overflow');
+            // document.body.classList.toggle('overflow');
         }
     },
 }

@@ -63,7 +63,7 @@ a, p, span, button {
 
 p {
     font-size: $font-size--5;
-    line-height: 2em;
+    line-height: 2.5em;
     letter-spacing: 0.08em;
     margin: 0;
 
@@ -79,6 +79,53 @@ p {
     @include screen('sm') {
         height: 3.25em;
     }
+}
+
+// bounce
+@-webkit-keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -webkit-transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-10px);
+    }
+
+    60% {
+        -webkit-transform: translateY(-5px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+.bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 .d-block {
@@ -118,7 +165,7 @@ p {
 
 .container {
     max-width: 1440px;
-    width: 95%;
+    width: 94%;
     margin: 0 auto;
 }
 
@@ -148,6 +195,19 @@ p {
     background-repeat: no-repeat;
 }
 
+.jc-sb-ai-fs {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.jc-sb-ai-fe {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
 .jc-space-between {
     display:flex;
     justify-content: space-between;
@@ -158,9 +218,34 @@ p {
     flex-direction: column;
 }
 
+.jc-flex-end {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .center {
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-end {
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.stick-top {
+    top: 5em;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.px-3p {
+    padding-left: 3%;
+    padding-right: 3%;
 }
 </style>
