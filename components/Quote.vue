@@ -16,8 +16,13 @@ export default {
 <style lang="scss" scoped>
 .purple-bar {
     background-color: $asset-purple;
-    height: 20px;
+    height: 1.25em;
     width: 270px;
+
+    @include screen('md') {
+        width: 80%;
+        height: .75em;
+    }
 }
 
 .quotation {
@@ -28,8 +33,21 @@ export default {
         position: absolute;
         width: 60vw;
 
+        @include screen ('lg') {
+            width: 55vw;
+        }
+
+        @include screen('md') {
+            position: relative;
+            width: 100%;
+        }
+
         p {
             font-size: $font-size--7;
+
+            @include screen('lg') {
+                font-size: $font-size--6;
+            }
         }
     }
 }

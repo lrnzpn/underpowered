@@ -17,7 +17,7 @@
             </div>
 
             <div class="unpwrd unpwrd--1 container">
-                <div class="jc-sb-ai-fs" id="stickbulb">
+                <div v-if="this.windowWidth > 991" class="jc-sb-ai-fs" id="stickbulb">
                     <div class="txt-wrapper w-50">
                         <p class="mb-5">
                             DESPITE COMMERCIAL energy demand drops in 2020 and repeated attempts at industry reform, many Filipinos still live without an effordable and reliable source of <a href="/">power</a>. 
@@ -41,6 +41,29 @@
                         </div>
                     </div>
                 </div>
+                <div v-else class="center">
+                    <div class="content-wrapper">
+                        <p class="mb-5">
+                        DESPITE COMMERCIAL energy demand drops in 2020 and repeated attempts at industry reform, many Filipinos still live without an effordable and reliable source of <a href="/">power</a>. 
+                        Two decades have passed since the passage of the Electric Power Industry Reform Act of 2001 (EPIRA), but power shortages are expected to <a href="/">persist</a> well into the latter half of the decade in some regions. 
+                        The limitations caused by unreliable power is further aggravated by work-from-home arrangements and the current recession. 
+                        This comes as the energy sector continues to <a href="/">grapple</a> with the energy demands of the new normal.
+                        </p>
+
+                        <div class="bulb-container center">
+                            <img 
+                            id="lightbulb"
+                            class="lightbulb" 
+                            :src="require('../assets/01 Intro _ Unplugged/PNG/01 PH Light-ON.png')" 
+                            alt="light-on">
+                        </div>
+
+                        <p class="mb-5">
+                            While energy security remains <a href="http://">elusive</a> in some parts of the country, households from regions suffering from energy insecurity find themselves at a <a href="http://">disadvantage</a> to those energy secure. 
+                            To help struggling households and businesses amid the recession, the government is now pushing to <a href="http://">re-open</a> businesses, a move which may see an uptick in electricity demand.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <div class="unpwrd unpwrd--2 container center">
@@ -50,7 +73,9 @@
                 </p>
             </div>
 
-            <div class="city-banner bg"></div>
+            <div class="banner-container jc-flex-end">
+                <img :src="require('../assets/01 Intro _ Unplugged/PNG/02 Landscape TRANSPARENT.png')" alt="">
+            </div>
 
       </section>
       <section id="unplugged">
@@ -66,27 +91,25 @@ export default {
         return {
             stickTop: false,
             fixBulb: false,
+            windowWidth: 0
         }
     },
     components: {
         Unplugged,
     },
     methods: {
-        
+        handleResize() {
+            this.windowWidth = window.innerWidth;
+            console.log(this.windowWidth)
+        }
     },
     mounted() {
-        let rect = document.getElementById('stickbulb').getBoundingClientRect();
-        let bulb = document.getElementById('lightbulb').getBoundingClientRect();
-        // fixed until certain scroll
-        window.addEventListener('scroll', () => {
-            (window.scrollY >= rect.height-80 && window.scrollY < (rect.height + (rect.height - bulb.height))) ? this.fixBulb = true : this.fixBulb = false
-        })
-        // will add top
-        window.addEventListener('scroll', () => {
-            (window.scrollY >= rect.height-80) ? this.stickTop = true : this.stickTop = false
-        })
-        
-    }
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+    beforeDestroy () {
+        window.removeEventListener('resize', this.handleResize);
+    },
 }
 </script>
 
@@ -98,14 +121,15 @@ export default {
     height: 425px;
 }
 
-.city-banner {
-    background-image: url('~assets/01 Intro _ Unplugged/PNG/02 Landscape TRANSPARENT.png');
-    width: 100%;
-    height: 250px;
-}
-
 .lightbulb {
     height: 600px;
+}
+
+.banner-container {
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .unpwrd-hdr-wrapper {
@@ -128,6 +152,12 @@ export default {
             width: 40px;
             height: 40px;
         }
+    }
+}
+
+.unpwrd--2 {
+    p {
+        width: 100%;
     }
 }
 </style>
