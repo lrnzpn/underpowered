@@ -56,11 +56,15 @@
       <section id="unplugged">
           <Unplugged />
       </section>
+      <section id="pitch-black">
+          <PitchBlack />
+      </section>
   </main>
 </template>
 
 <script>
 import Unplugged from './unplugged.vue'
+import PitchBlack from './pitch-black.vue'
 export default {
     data() {
         return {
@@ -70,6 +74,7 @@ export default {
     },
     components: {
         Unplugged,
+        PitchBlack,
     },
     methods: {
         
