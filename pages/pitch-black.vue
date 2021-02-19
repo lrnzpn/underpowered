@@ -5,13 +5,13 @@
         </div>
     
         <div class="ptchblk ptchblk--1 jc-sb-ai-fe">
-            <div class="img-wrapper kitchen pb-7">
+            <div class="img-wrapper kitchen-img">
                 <div class="kitchen-container">
                     <img class="kitchen-1" :src="require('../assets/03 Pitch Black/PNG/01a Kitchen Table.png')" alt="Kitchen 1a">
                 </div>
             </div>
 
-            <div class="txt-wrapper px-3p">
+            <div class="txt-wrapper kitchen px-3p">
                 <p class="mb-5">
                     Although power interruptions during the day are bothersome and inconvenient in their own right, it is not difficult to imagine how much more strenuous it would be to complete one’s duties during the night. The reality of accomplishing tasks without light or electricity is a situation that students from energy-insecure areas have to invariably face.
                 </p>
@@ -32,18 +32,18 @@
                 </p>
             </div>
             
-            <div class="img-wrapper kitchen">
+            <div class="img-wrapper kitchen-img">
                 <div class="kitchen-container">
-                    <img class="kitchen-1" :src="require('../assets/03 Pitch Black/PNG/01a Kitchen Table.png')" alt="Kitchen 1a">
+                    <img class="kitchen-2" :src="require('../assets/03 Pitch Black/PNG/01b Kitchen Table ON.png')" alt="Kitchen 1b">
                 </div>
             </div>
         </div> 
 
-        <div class="unplgd unplgd--2 container">
+        <div class="ptchblk ptchblk--2 container">
             <div class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
                 <div class="img-wrapper w-50">
-                    <div class="map-container">
-                        <img class="map" :src="require('../assets/03 Pitch Black/PNG/02 Metro Manila.png')" alt="Metro Manila Map">
+                    <div class="manila-container">
+                        <img class="manila" :src="require('../assets/03 Pitch Black/SVG/02 Metro Manila Combined.svg')" alt="Metro Manila Map">
                     </div>
                 </div>
                 <div class="txt-wrapper w-50">
@@ -54,7 +54,7 @@
             </div>
         </div> 
 
-        <div class="unplgd unplgd--3 jc-sb-ai-fs">
+        <div class="ptchblk ptchblk--3 jc-sb-ai-fs">
             <div class="txt-wrapper w-50 px-3p">
                 <p class="mb-5">
                     On the other hand, Arbon Jr. is able to continue his meal with a flashlight in hand. However, without electricity, his family’s rice cooker is rendered useless and all other cooking must be finished using a gas range if one is available. 
@@ -64,17 +64,17 @@
                 </p>
             </div>
             <div class="img-wrapper w-50">
-                <div class="rc-container">
-                    <img class="rc" :src="require('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')" alt="rice cooker">
+                <div class="flashlight-container">
+                    <img class="flashlight" :src="require('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')" alt="rice cooker">
                 </div>
             </div>
         </div>
 
-        <div class="unplgd unplgd--4 container">
+        <div class="ptchblk ptchblk--4 container">
             <div class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
                 <div class="img-wrapper w-50">
-                    <div class="pb-container jc-flex-end">
-                        <img class="powerbank" :src="require('../assets/03 Pitch Black/PNG/03 Dumaguete.png')" alt="powerbank">
+                    <div class="dumaguete-container">
+                        <img class="dumaguete" :src="require('../assets/03 Pitch Black/PNG/03 Dumaguete.png')" alt="powerbank">
                     </div>
                 </div>
                 <div class="txt-wrapper w-50">
@@ -85,11 +85,11 @@
             </div>
         </div>
 
-        <div class="unplgd unplgd--4 container">
+        <div class="ptchblk ptchblk--4 container">
             <div class="center mt-7">
                 <div class="img-wrapper w-50">
-                    <div class="pb-container jc-flex-end">
-                        <img class="powerbank" :src="require('../assets/03 Pitch Black/PNG/04 Mindanao.png')" alt="powerbank">
+                    <div class="mindanao-container">
+                        <img class="mindanao" :src="require('../assets/03 Pitch Black/PNG/04 Mindanao.png')" alt="powerbank">
                     </div>
                 </div>
                 <div class="txt-wrapper w-50">
@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        <div class="unplgd unplgd--4 container">
+        <div class="ptchblk ptchblk--4 container">
             <div class="center mt-7">
                 <div class="txt-wrapper w-50">
                     <p class="mb-7 pb-7">
@@ -119,55 +119,55 @@
   </div>
 </template>
 
-<script>
-import GradientBar from '~/components/Gradient-Bar.vue'
-import Quotation from '~/components/Quote.vue'
-export default {
-    components: {
-        GradientBar,
-        Quotation
-    }
-}
-</script>
-
 <style lang="scss" scoped>
-.img-wrapper kitchen-center {
-  width: 20%;
-}
 
 .pitchblack-header {
   background: linear-gradient(180deg, #021C33 0%, #000000 49.82%, #021C33 100%);
   height: 440px;
 }
 
-.kitchen-1 {
+.txt-wrapper.kitchen {
+    width: 55%;
+}
+
+.img-wrapper.kitchen-img {
+    width: 25%;
+    padding-bottom: 15rem;
+}
+
+.kitchen-1, .kitchen-2 {
     width: 90%;
     height: 100%;
+    border: 12px solid white;
 }
 
-.map {
-    width: 100%;
+.kitchen-1 {
+    margin-left: -3rem;
+}
+
+.kitchen-2 {
+    margin-left: 3rem;
+}
+
+.kitchen-container, .flashlight-container {
+    overflow-x: hidden;
+}
+
+.manila, .dumaguete, .mindanao {
+    width: 60%;
     height: 100%;
+    border: 12px solid white;
 }
 
-.rc {
+.flashlight {
     width: auto;
     height: 500px;
-    left: -10%;
+    transform: rotate(245deg);
+    left: 60%;
+    margin-top: -8rem;
 }
 
-.phone {
-    width: auto;
-    height: 600px;
-}
-
-.powerbank {
-    width: auto;
-    height: 600px;
-    transform: rotate(-13.95deg);
-}
-
-.unplgd {
+.ptchblk {
     &--1 {
         .txt-wrapper {
             margin-top: 10em;
