@@ -248,4 +248,8 @@ p {
     padding-left: 3%;
     padding-right: 3%;
 }
+
+.editor-note {
+    font-size: $font-size--3;
+}
 </style>

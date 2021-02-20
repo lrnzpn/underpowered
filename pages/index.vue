@@ -62,6 +62,9 @@
       <section id="go-haywire">
           <GoHaywire />
       </section>
+      <section id="lighting-way">
+          <LightingWay />
+      </section>
   </main>
 </template>
 
@@ -69,6 +72,7 @@
 import Unplugged from './unplugged.vue'
 import PitchBlack from './pitch-black.vue'
 import GoHaywire from './go-haywire.vue'
+import LightingWay from './lighting-the-way.vue'
 export default {
     data() {
         return {
@@ -80,6 +84,7 @@ export default {
         Unplugged,
         PitchBlack,
         GoHaywire,
+        LightingWay,
     },
     methods: {
         
