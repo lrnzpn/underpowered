@@ -59,12 +59,16 @@
       <section id="pitch-black">
           <PitchBlack />
       </section>
+      <section id="go-haywire">
+          <GoHaywire />
+      </section>
   </main>
 </template>
 
 <script>
 import Unplugged from './unplugged.vue'
 import PitchBlack from './pitch-black.vue'
+import GoHaywire from './go-haywire.vue'
 export default {
     data() {
         return {
@@ -75,6 +79,7 @@ export default {
     components: {
         Unplugged,
         PitchBlack,
+        GoHaywire,
     },
     methods: {
         
