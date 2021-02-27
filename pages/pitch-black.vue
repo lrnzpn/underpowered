@@ -40,7 +40,7 @@
         </div> 
 
         <div class="ptchblk ptchblk--2 container">
-            <div class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
+            <div class="jc-space-between pt-7 pb-7 mt-7 mb-7">
                 <div class="img-wrapper w-50">
                     <div class="manila-container">
                         <img class="manila" :src="require('../assets/03 Pitch Black/SVG/02 Metro Manila Combined.svg')" alt="Metro Manila Map">
@@ -71,7 +71,7 @@
         </div>
 
         <div class="ptchblk ptchblk--4 container">
-            <div class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
+            <div class="jc-space-between pt-7 pb-7 mt-7 mb-7">
                 <div class="img-wrapper w-50">
                     <div class="dumaguete-container">
                         <img class="dumaguete" :src="require('../assets/03 Pitch Black/PNG/03 Dumaguete.png')" alt="powerbank">

@@ -92,6 +92,10 @@ export default {
     left: 25%;
   }
 
+  .powerplant-container {
+    text-align: center;
+  }
+
   .powerplant {
     height: 300px;
   }
@@ -99,5 +103,9 @@ export default {
   .plan {
     height: 700px;
     margin-left: -10rem;
+  }
+
+  .editor-note {
+    font-size: $font-size--3;
   }
 </style>
