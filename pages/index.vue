@@ -18,7 +18,7 @@
 
             <div class="unpwrd unpwrd--1 container">
                 <div v-if="this.windowWidth > 991" class="jc-sb-ai-fs" id="stickbulb">
-                    <div class="txt-wrapper w-50">
+                    <div class="txt-wrapper w-50" id="bulbtxt">
                         <p class="mb-5">
                             DESPITE COMMERCIAL energy demand drops in 2020 and repeated attempts at industry reform, many Filipinos still live without an effordable and reliable source of <a href="/">power</a>. 
                             Two decades have passed since the passage of the Electric Power Industry Reform Act of 2001 (EPIRA), but power shortages are expected to <a href="/">persist</a> well into the latter half of the decade in some regions. 
@@ -31,14 +31,15 @@
                             To help struggling households and businesses amid the recession, the government is now pushing to <a href="http://">re-open</a> businesses, a move which may see an uptick in electricity demand.
                         </p>
                     </div>
-                    <div class="img-wrapper w-50">
-                        <div class="bulb-container center">
-                            <img 
-                            id="lightbulb"
-                            class="lightbulb" 
-                            :src="require('../assets/01 Intro _ Unplugged/PNG/01 PH Light-OFF.png')" 
-                            alt="light-off">
-                        </div>
+                    <div class="img-wrapper w-50 sticky">
+                        <transition name="fade">
+                            <div v-if="this.bulbLit" class="bulb-container center">
+                                <img 
+                                class="lightbulb" 
+                                :src="require('../assets/01 Intro _ Unplugged/PNG/01 PH Light-OFF.png')" 
+                                alt="light-off">
+                            </div>
+                        </transition>
                     </div>
                 </div>
                 <div v-else class="center">
@@ -52,7 +53,6 @@
 
                         <div class="bulb-container center">
                             <img 
-                            id="lightbulb"
                             class="lightbulb" 
                             :src="require('../assets/01 Intro _ Unplugged/PNG/01 PH Light-ON.png')" 
                             alt="light-on">
@@ -81,31 +81,44 @@
       <section id="unplugged">
           <Unplugged />
       </section>
+      <section id="loading-screen">
+          <LoadingScreen />
+      </section>
   </main>
 </template>
 
 <script>
 import Unplugged from './unplugged.vue'
+import LoadingScreen from './loading-screen.vue'
 export default {
     data() {
         return {
-            stickTop: false,
-            fixBulb: false,
-            windowWidth: 0
+            windowWidth: 0,
+            bulbLit: false,
         }
     },
     components: {
         Unplugged,
+        LoadingScreen
     },
     methods: {
         handleResize() {
             this.windowWidth = window.innerWidth;
-            console.log(this.windowWidth)
+        },
+        bulbScroll() {
+            document.getElementById('bulbtxt').getBoundingClientRect().top - document.getElementById('bulbtxt').getBoundingClientRect().height/2 < 0 
+            && document.getElementById('bulbtxt').getBoundingClientRect().bottom -  document.getElementById('bulbtxt').getBoundingClientRect().height/2> 0 
+            ? this.bulbLit = true : this.bulbLit = false
         }
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
+    },
+    updated() {
+        window.addEventListener('scroll', () => {
+            this.bulbScroll()
+        })
     },
     beforeDestroy () {
         window.removeEventListener('resize', this.handleResize);

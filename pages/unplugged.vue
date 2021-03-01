@@ -9,9 +9,20 @@
         </div>
     
         <div v-if="this.windowWidth > 991" class="unplgd unplgd--1 jc-sb-ai-fs">
-            <div class="img-wrapper w-50">
+            <div class="img-wrapper w-50 sticky">
                 <div class="gadgets-container">
-                    <img class="gadgets" :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-OFF.png')" alt="gadgets">
+                    <img 
+                        v-if="this.gadgetLit"
+                        class="gadgets" 
+                        id="gadgets" 
+                        :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-ON.png')" 
+                        alt="gadgets">
+                    <img 
+                        v-else
+                        class="gadgets" 
+                        id="gadgets" 
+                        :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-OFF.png')" 
+                        alt="gadgets">
                 </div>
             </div>
 
@@ -21,7 +32,7 @@
                 </p>
 
                 <p class="mb-5">
-                    With no threat of early power interruptions, Cortez usually wakes up at 11:00 AM and immediately checks his phone. He starts his day with breakfast while watching videos on his iPad. After breakfast, he greets his mother who is working in her home office before sitting in front of his computer, ready for the rest of the day.
+                    With no threat of early power interruptions, Cortez usually wakes up at <span id="eleven">11:00 AM</span> and immediately checks his phone. He starts his day with breakfast while watching videos on his iPad. After breakfast, he greets his mother who is working in her home office before sitting in front of his computer, ready for the rest of the day.
                 </p>
                 <p class="mb-5">
                     Having stable power is <a href="http://">vital</a> to the productivity of a student, especially when undergoing online classes. Yet, people living in energy-insecure areas try their best to make their situation work, from maximizing the morning light for chores, to paying attention to the announcements from energy distributors on scheduled power interruptions.
@@ -51,8 +62,8 @@
         </div>
 
         <div class="unplgd unplgd--2 container">
-            <div v-if="this.windowWidth > 991" class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
-                    <div class="txt-wrapper w-50">
+            <div v-if="this.windowWidth > 991" class="jc-sb-ai-fs pt-7 pb-7 mt-7 mb-7">
+                <div class="txt-wrapper w-50" id="maptxt">
                     <p class="mb-5">
                         Despite the best efforts of people who live in energy-insecure areas to mitigate their decreased productivity, losing power in the morning still delays the entire day. 
                     </p>
@@ -60,10 +71,15 @@
                         The routines of college students such as Pam Radaza, Juan Paolo Ignacio, and Primo Arbon Jr., are affected by power loss. Radaza and Ignacio both hail from Mindanao and live in Butuan City and Malaybalay City, respectively. Meanwhile, Arbon Jr. is from Dumaguete City in Negros Oriental. Despite living in different regions, they share similar experiences with energy insecurity.
                     </p>
                 </div>
-                <div class="img-wrapper w-50">
-                    <div class="map-container">
-                        <img class="map" :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" alt="">
-                    </div>
+                <div class="img-wrapper w-50 sticky">
+                    <transition name="fade">
+                        <div v-if="this.mapLit" class="map-container flex-end">
+                            <img                                
+                                class="map" 
+                                :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" 
+                                alt="map">                           
+                        </div>
+                    </transition>
                 </div>
             </div>
             <div v-else class="center">
@@ -86,14 +102,29 @@
         <div v-if="this.windowWidth > 991" class="content-wrapper">
             <div class="unplgd unplgd--3 jc-sb-ai-fs">
                 <div class="img-wrapper w-50">
-                    <div class="rc-container">
-                        <img class="rc" :src="require('../assets/01 Intro _ Unplugged/PNG/05 Rice Cooker.png')" alt="rice cooker">
+                    <div class="rcp-invisible">
+                        <div class="rc-container">
+                            <img class="rc" :src="require('../assets/01 Intro _ Unplugged/PNG/05 Rice Cooker.png')" alt="rice cooker">
+                        </div>
+                        <div class="phone-container flex-end">
+                            <img class="phone" :src="require('../assets/01 Intro _ Unplugged/PNG/06 Phone.png')" alt="phone">
+                        </div>
                     </div>
-                    <div class="phone-container flex-end">
-                        <img class="phone" :src="require('../assets/01 Intro _ Unplugged/PNG/06 Phone.png')" alt="phone">
-                    </div>
+                    <transition name="fade">
+                        <div 
+                            v-if="this.rcpFixed"
+                            class="rcp-container"
+                        >
+                            <div class="rc-container">
+                                <img class="rc" :src="require('../assets/01 Intro _ Unplugged/PNG/05 Rice Cooker.png')" alt="rice cooker">
+                            </div>
+                            <div class="phone-container flex-end">
+                                <img class="phone" :src="require('../assets/01 Intro _ Unplugged/PNG/06 Phone.png')" alt="phone">
+                            </div>
+                        </div>
+                    </transition>
                 </div>
-                <div class="txt-wrapper w-50 px-3p">
+                <div class="txt-wrapper w-50 px-3p" id="rcptxt">
                     <p class="mb-5">
                         At the start of each day, preparations are at hand due to a possible power interruption, which may or may not be announced. At 8:00 AM, Ignacio often wakes up early to assist with the morning chores. He ensures that his gadgets are charged and the possible lack of internet access is covered through cellular data. “I do all my chores in the morning and during the day so that I don’t get power outages at night,” he said.
                     </p>
@@ -105,8 +136,8 @@
 
             <GradientBar />
 
-            <div class="unplgd unplgd--4 container">
-                <div class="center mt-7">
+            <div class="unplgd unplgd--4 container mb-7 pb-5">
+                <div class="ai-flex-start mt-7">
                     <div class="txt-wrapper w-50">
                         <p class="mb-7 pb-7">
                             Similarly, Radaza feels the need to anticipate power interruptions. However, she believes that the need for preparation also stems from anxiety. 
@@ -124,7 +155,7 @@
                         </p>
             
                     </div>
-                    <div class="img-wrapper w-50">
+                    <div class="img-wrapper w-50 sticky">
                         <div class="pb-container jc-flex-end">
                             <img class="powerbank" :src="require('../assets/01 Intro _ Unplugged/PNG/07 Powerbank.png')" alt="powerbank">
                         </div>
@@ -179,21 +210,44 @@ export default {
     },
     data() {
         return {
-            windowWidth: 0
+            windowWidth: 0,
+            gadgetLit: false,
+            mapLit: false,
+            rcpFixed: false
         }
     },
     methods: {
         handleResize() {
             this.windowWidth = window.innerWidth;
-            console.log(this.windowWidth)
+        },
+        gadgetScroll() {
+            document.getElementById('gadgets').height / 1.5 >= document.getElementById('eleven').getBoundingClientRect().top ? this.gadgetLit = true : this.gadgetLit = false
+        },
+        mapScroll() {
+            document.getElementById('maptxt').getBoundingClientRect().top - document.getElementById('maptxt').getBoundingClientRect().height/2 < 0
+            && document.getElementById('maptxt').getBoundingClientRect().bottom -  document.getElementById('maptxt').getBoundingClientRect().height/2> 0 
+            ? this.mapLit = true : this.mapLit = false
+        },
+        rcpScroll() {
+            document.getElementById('rcptxt').getBoundingClientRect().top - document.getElementById('rcptxt').getBoundingClientRect().height/2 < 0 
+            && document.getElementById('rcptxt').getBoundingClientRect().bottom -  document.getElementById('rcptxt').getBoundingClientRect().height/3> 0 
+            ? this.rcpFixed = true : this.rcpFixed = false
         }
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
-        this.handleResize();
+        this.handleResize();        
+    },
+    updated() {
+        window.addEventListener('scroll', () => {
+            this.gadgetScroll()
+            this.mapScroll()
+            this.rcpScroll()
+        })
     },
     beforeDestroy () {
         window.removeEventListener('resize', this.handleResize);
+        // window.removeEventListener('scroll', this.gadgetScroll)
     },
     
 }
@@ -206,7 +260,7 @@ export default {
 }
 
 .map {
-    width: 100%;
+    width: 95%;
     height: 100%;
 }
 
@@ -236,6 +290,28 @@ export default {
         .txt-wrapper {
             margin-top: 10em;
         }
+    }
+
+    &--2 {
+        .img-wrapper {
+            &.sticky {
+                top: 20%;
+            } 
+        }
+    }
+}
+
+.rcp-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+// gives the height of the images while hidden
+.rcp-invisible {
+    img {
+        visibility: hidden;
+        opacity: 0;
     }
 }
 </style>
