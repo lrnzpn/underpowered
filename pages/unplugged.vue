@@ -68,16 +68,14 @@
                         Despite the best efforts of people who live in energy-insecure areas to mitigate their decreased productivity, losing power in the morning still delays the entire day. 
                     </p>
                     <p class="mb-5">
-                        The routines of college students such as Pam Radaza, Juan Paolo Ignacio, and Primo Arbon Jr., are affected by power loss. Radaza and Ignacio both hail from Mindanao and live in Butuan City and Malaybalay City, respectively. Meanwhile, Arbon Jr. is from Dumaguete City in Negros Oriental. Despite living in different regions, they share similar experiences with energy insecurity.
+                        The routines of college students such as Pam Radaza, Juan Paolo Ignacio, and Primo Arbon Jr., are affected by <span id="power-loss">power loss</span>. 
+                        Radaza and Ignacio both hail from Mindanao and live in Butuan City and Malaybalay City, respectively. Meanwhile, Arbon Jr. is from Dumaguete City in Negros Oriental. Despite living in different regions, they share similar experiences with energy insecurity.
                     </p>
                 </div>
                 <div class="img-wrapper w-50 sticky">
                     <transition name="fade">
-                        <div v-if="this.mapLit" class="map-container flex-end">
-                            <img                                
-                                class="map" 
-                                :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" 
-                                alt="map">                           
+                        <div v-if="this.mapLit" class="map-container flex-end"> 
+                            <div id="map" class="map static" :class="{'flicker' : this.flicker}"></div>                        
                         </div>
                     </transition>
                 </div>
@@ -88,8 +86,8 @@
                         Despite the best efforts of people who live in energy-insecure areas to mitigate their decreased productivity, losing power in the morning still delays the entire day. 
                     </p>
 
-                    <div class="map-container">
-                        <img class="map" :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" alt="">
+                    <div class="map-container center">
+                        <img class="map-on" :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" alt="">
                     </div>
 
                     <p class="mb-5">
@@ -213,7 +211,8 @@ export default {
             windowWidth: 0,
             gadgetLit: false,
             mapLit: false,
-            rcpFixed: false
+            rcpFixed: false,
+            flicker: false
         }
     },
     methods: {
@@ -221,7 +220,9 @@ export default {
             this.windowWidth = window.innerWidth;
         },
         gadgetScroll() {
-            document.getElementById('gadgets').height / 1.5 >= document.getElementById('eleven').getBoundingClientRect().top ? this.gadgetLit = true : this.gadgetLit = false
+            try {
+                document.getElementById('gadgets').height / 1.5 >= document.getElementById('eleven').getBoundingClientRect().top ? this.gadgetLit = true : this.gadgetLit = false
+            } catch {}
         },
         mapScroll() {
             document.getElementById('maptxt').getBoundingClientRect().top - document.getElementById('maptxt').getBoundingClientRect().height/2 < 0
@@ -232,6 +233,15 @@ export default {
             document.getElementById('rcptxt').getBoundingClientRect().top - document.getElementById('rcptxt').getBoundingClientRect().height/2 < 0 
             && document.getElementById('rcptxt').getBoundingClientRect().bottom -  document.getElementById('rcptxt').getBoundingClientRect().height/3> 0 
             ? this.rcpFixed = true : this.rcpFixed = false
+        },
+        mapFlicker() {
+            try {
+                document.getElementById('power-loss').getBoundingClientRect().top - 80 
+                <= document.getElementById('map').getBoundingClientRect().top ?
+                this.flicker = true : this.flicker = false
+            } catch {
+
+            }
         }
     },
     mounted() {
@@ -243,6 +253,7 @@ export default {
             this.gadgetScroll()
             this.mapScroll()
             this.rcpScroll()
+            this.mapFlicker()
         })
     },
     beforeDestroy () {
@@ -260,8 +271,42 @@ export default {
 }
 
 .map {
-    width: 95%;
-    height: 100%;
+    height: 300px;
+    background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png');
+
+    &.flicker {
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+    }
+}
+
+.map-on {
+    height: 300px;
+    @include screen('sm') {
+        height: 200px;
+    }
+}
+
+.flicker {
+    animation-name: mapFlicker;
+    animation-duration: 1s;
+}
+
+@keyframes mapFlicker {
+    0% {
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')
+    }
+
+    33% {
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+    }
+
+    66% {
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')
+    }
+
+    100% {
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+    }
 }
 
 .rc {
@@ -272,11 +317,19 @@ export default {
     @include screen('md') {
         left: 0;
     }
+
+    @include screen('sm') {
+        height: 300px;
+    }
 }
 
 .phone {
     width: auto;
     height: 600px;
+
+    @include screen('sm') {
+        height: 400px;
+    }
 }
 
 .powerbank {
@@ -295,7 +348,7 @@ export default {
     &--2 {
         .img-wrapper {
             &.sticky {
-                top: 20%;
+                top: 30%;
             } 
         }
     }

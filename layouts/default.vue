@@ -250,4 +250,8 @@ p {
     padding-left: 3%;
     padding-right: 3%;
 }
+
+.pt-80px {
+    padding-top: 80px;
+}
 </style>

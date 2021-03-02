@@ -1,6 +1,6 @@
 <template>
   <div class="loading-screen">
-      <div class="loading-screen-header center flex-column">
+      <div class="loading-screen-header center flex-column mt-7 mb-7">
             <h1>Loading Screen</h1>
             <img :src="require('../assets/02 Loading Screen/GIF/01-Loading.gif')" alt="loading...">
       </div>
@@ -93,7 +93,7 @@ export default {
         }
 
         &.sticky {
-            top: 0px;
+            top: 25%;
         } 
     }
 
