@@ -1,7 +1,7 @@
 <template>
   <div class="gohaywire">
     <div
-      class="haywire-header center mt-6 mb-6"
+      class="haywire-header center mt-7 mb-6"
       v-bind:class="{ mobile: this.windowWidth <= 991 }"
     >
       <div class="sparks-1"></div>
@@ -9,7 +9,7 @@
       <div class="sparks-1 flipped"></div>
     </div>
 
-    <div v-if="this.windowWidth > 991" class="haywire haywire--1 jc-sb-ai-fe">
+    <div v-if="this.windowWidth > 991" class="haywire haywire--1 jc-sb-ai-fe mb-7 pb-7">
       <div class="txt-wrapper px-3p w-50">
         <p class="mb-5">
           These uncertainties—borne from power outages—naturally and adversely
@@ -18,7 +18,7 @@
           momentum rolling, arguably robbing students of the satisfaction and
           gratification of accomplishing work they may even love doing.
         </p>
-        <p class="mb-5">
+        <p>
           Power outages, then, not only deal heavy blows to one’s academic life,
           but also mental wellness. However, beyond challenges to mental health,
           physical illnesses have also affected the students in energy insecure
@@ -65,7 +65,7 @@
 
     <div
       v-if="this.windowWidth > 991"
-      class="haywire haywire--2 jc-sb-ai-fe mt-7"
+      class="haywire haywire--2 jc-sb-ai-fe mt-7 pt-7 mb-7 pb-7"
     >
       <div class="img-wrapper canvas-img">
         <div class="canvas-container">
@@ -148,14 +148,14 @@
     </div>
 
     <div v-if="this.windowWidth > 991" class="haywire haywire--3 container">
-      <div class="center mt-7">
+      <div class="center mt-7 mb-7 pb-7">
         <div class="txt-wrapper w-50">
-          <p class="mb-7">
+          <p class="mb-5">
             For Arbon Jr., the lack of electricity in the evening can lead to
             unnecessary perspiration, which in turn may eventually lead to
             untoward pulmonary ailments.
           </p>
-          <p class="mb-7">
+          <p class="mb-5">
             On the other hand, Radaza recognized that studying often means
             compromising her health.
           </p>
@@ -225,9 +225,9 @@
     </div>
 
     <div v-if="this.windowWidth > 991" class="haywire haywire--5 container">
-      <div class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
+      <div class="jc-sb-ai-fe pb-7 mb-7">
         <div class="txt-wrapper w-50">
-          <p class="mb-7 pb-7">
+          <p class="mb-7">
             Ignacio echoes Radaza’s sentiments. He acknowledges the adverse
             risks and conditions that studying late into the night entails, but
             also understands that it is a necessary compromise.
@@ -268,7 +268,7 @@
     </div>
 
     <div v-if="this.windowWidth > 991" class="haywire haywire--6 container">
-      <div class="jc-sb-ai-fe pt-7 pb-7 mt-7 mb-7">
+      <div class="jc-sb-ai-fe mt-7 pb-7 mb-7">
         <div class="txt-wrapper w-50">
           <p class="mb-7 pb-7">
             However, this does not mean that either Radaza or Ignacio is ready
@@ -311,6 +311,7 @@ export default {
 
 <style lang="scss" scoped>
 .haywire-header {
+  margin-top: 10rem;
   height: 200px;
   display: flex;
 

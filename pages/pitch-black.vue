@@ -34,7 +34,7 @@
             
             <div class="img-wrapper kitchen-img">
                 <div class="kitchen-container">
-                    <img class="kitchen-2" :src="require('../assets/03 Pitch Black/PNG/01b Kitchen Table ON.png')" alt="Kitchen 1b">
+                    <img class="kitchen-2" v-bind:class="{ ml3: this.windowWidth > 991 }" :src="require('../assets/03 Pitch Black/PNG/01b Kitchen Table ON.png')" alt="Kitchen 1b">
                 </div>
             </div>
         </div> 
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 <div class="txt-wrapper w-50">
-                    <p class="mb-7 pb-7">
+                    <p class="mb-5">
                         Meanwhile, Arbon Jr.’s hometown—Dumaguete City—sources most of its electricity from geothermal and solar energy. Although mostly clean, the energy output from the nearby power plants is sometimes insufficient and are subject to changes in weather. Recently, the Negros Oriental II Electric Cooperative has been running on a daily power deficit.
                     </p>
                 </div>
@@ -144,17 +144,17 @@
         </div>
 
         <div v-if="this.windowWidth > 991" class="ptchblk ptchblk--5 container">
-            <div class="center mt-7">
+            <div class="center mt-7 mb-7 pb-7">
                 <div class="img-wrapper w-50">
                     <div class="mindanao-container">
                         <img class="mindanao" :src="require('../assets/03 Pitch Black/PNG/04 Mindanao.png')" alt="powerbank">
                     </div>
                 </div>
                 <div class="txt-wrapper w-50">
-                    <p class="mb-7 pb-7">
+                    <p class="mb-5">
                         In Mindanao, where Ignacio and Radaza reside, the Agus and Pulanggi hydroelectric power plants supply more than half of the region’s total electricity requirements. These hydroelectric power plants are likewise subject to weather conditions—particularly during the dry season—and their output, therefore, is seasonal. In 2015, water levels for both power plants reached critical levels, resulting in lowered power supply in Mindanao. 
                     </p>
-                    <p class="mb-7 pb-7">
+                    <p class="mb-5">
                         Given their finite nature, renewable energy facilities dominating areas such as Arbon Jr.’s are not as efficient in producing ener gy compared to their non-renewable counterparts. While non-renewable facilities are reliable, they are not without cost to the environment. 
                     </p>
                 </div>
@@ -164,10 +164,10 @@
         <div v-if="this.windowWidth > 991" class="ptchblk ptchblk--6 container">
             <div class="center mt-7">
                 <div class="txt-wrapper w-50">
-                    <p class="mb-7 pb-7">
+                    <p class="mb-5">
                         Despite the contrast in their experiences, all of the students nonetheless are able to work on their online modules almost unimpeded.
                     </p>
-                    <p class="mb-7 pb-7">
+                    <p class="mb-5">
                         Ignacio shared that studying is easier compared to other activities at night since his devices generate their own light—granted they were charged and online data was purchased beforehand. However, this still does not compare to having electricity that is stable enough to keep these devices constantly powered and connected to a WiFi router.
                     </p>
                 </div>
@@ -225,7 +225,7 @@ export default {
 <style lang="scss" scoped>
 
 .pitchblack-header {
-  background: linear-gradient(180deg, #c7ced3 0%, #000000 49.82%, #021C33 100%);
+  background: linear-gradient(180deg, #021C33 0%, #000000 49.82%, #021C33 100%);
   height: 440px;
 }
 
@@ -252,8 +252,8 @@ export default {
     width: 40% !important; 
 }
 
-.kitchen-2 {
-    margin-right: -3rem;
+.kitchen-2.ml3 {
+    margin-left: 3rem;
 }
 
 .ml-auto {
@@ -276,13 +276,5 @@ export default {
     transform: rotate(245deg);
     left: 60%;
     margin-top: -8rem;
-}
-
-.ptchblk {
-    &--1 {
-        .txt-wrapper {
-            margin-top: 10em;
-        }
-    }
 }
 </style>

@@ -1,9 +1,10 @@
 <template>
   <div class="lightingway">
+    <div class="lighting-gradient"></div>
     <div class="lighting-header" v-bind:class="{ mobile: this.windowWidth <= 991 }">
       <h1>Lighting the way</h1>
     </div>
-    <div v-if="this.windowWidth > 991" class="lighting lighting--1 jc-sb-ai-fe mb-6 pb-6">
+    <div v-if="this.windowWidth > 991" class="lighting lighting--1 jc-sb-ai-fe mb-7 pb-7">
         <div class="txt-wrapper px-3p w-50">
             <p class="mb-5">
                 As each day starts anew, the rising sun will restart the students’ daily routines—one uninterrupted, the others inconvenienced by poor signal and unreliable power. In response to this year’s expected service interruptions, Department of Energy (DOE) officials urged households and government agencies to watch their power consumption. 
@@ -11,7 +12,7 @@
             <p class="mb-5">
                 Although one may be able to reduce consumption on a personal level, this alone might not be enough to reduce aggregate demand. Without stronger government support, the energy sector will continue to struggle in meeting the country’s energy needs. As of writing, the DOE is poised to approve new green energy projects to address the country’s ever-increasing power demands.
             </p>
-            <p class="mb-5">
+            <p>
                 Adding to the new green energy projects, the DOE has laid out plans to upgrade power production and transmission infrastructure as part of the administration’s Build, Build, Build Program. These plans seeking to address the shortcomings of the power industry felt by regular people are often attributed to the country’s aging power plants.
             </p>
         </div>
@@ -41,7 +42,7 @@
       </div>
     </div>
 
-    <div v-if="this.windowWidth > 991" class="lighting lighting--2 jc-sb-ai-fe">
+    <div v-if="this.windowWidth > 991" class="lighting lighting--2 jc-sb-ai-fe mt-7 pt-7 mb-7 pb-7">
         <div class="img-wrapper w-50">
             <div class="plan-container">
                 <img class="plan" :src="require('../assets/05 Lighting the Way/PNG/04 Plan + Caraga.png')" alt="Plan">
@@ -78,10 +79,10 @@
     <div v-if="this.windowWidth > 991" class="lighting lighting--3 container">
         <div class="center mt-7">
             <div class="txt-wrapper w-50">
-                <p class="mb-7">
+                <p class="mb-5">
                     People like Cortez who live with a stable source of electricity have clear advantages over those who do not. Regions like Northern Mindanao, Caraga, Eastern, and Central Visayas face frequent outages from factors like inadequate power supply, weather disturbances, and high demand at peak hours. This situation is only exacerbated by the fact that more people work from home as a result of the pandemic.
                 </p>
-                <p class="mb-7">
+                <p class="mb-5">
                     The lack of reliable energy can limit peoples’ choices and disrupt schedules as people are often powerless in changing their local power situation. While energy insecurity remains an issue, industry innovation and government support for the energy sector are avenues that may help light the way to energy security and equity. Moving forward, the energy sector must adapt and improve power production and transmission infrastructure if they are to meet the needs of ordinary citizens like Radaza, Ignacio, and Arbon Jr.
                 </p>
                 <p class="editor-note mb-7">
@@ -137,6 +138,12 @@ export default {
 <style lang="scss" scoped>
   h1, p {
     color: $txt-lights-on;
+  }
+
+  .lighting-gradient {
+    background: linear-gradient(180deg, #01192F 9.02%, #808A8F 51.64%, #C6C8C4 75.17%, #FFFBEF 94.26%);
+    height: 300px;
+    margin-bottom: 2rem;
   }
 
   .lightingway {
