@@ -48,6 +48,10 @@ export default {
             @include screen('lg') {
                 font-size: $font-size--6;
             }
+
+            @include screen('md') {
+                font-size: $font-size--4;
+            }
         }
     }
 }

@@ -11,7 +11,8 @@
         <div v-if="this.windowWidth > 991" class="unplgd unplgd--1 jc-sb-ai-fs">
             <div class="img-wrapper w-50 sticky">
                 <div class="gadgets-container">
-                    <img 
+                    <transition name=fade>
+                        <img 
                         v-if="this.gadgetLit"
                         class="gadgets" 
                         id="gadgets" 
@@ -23,6 +24,7 @@
                         id="gadgets" 
                         :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-OFF.png')" 
                         alt="gadgets">
+                    </transition>
                 </div>
             </div>
 
@@ -134,7 +136,7 @@
 
             <GradientBar />
 
-            <div class="unplgd unplgd--4 container mb-7 pb-5">
+            <div class="unplgd unplgd--4 container">
                 <div class="ai-flex-start mt-7">
                     <div class="txt-wrapper w-50">
                         <p class="mb-7 pb-7">
@@ -161,7 +163,7 @@
                 </div>
             </div>
         </div>
-        <div v-else class="content-wrapper container">
+        <div v-else class="content-wrapper">
             <div class="img-wrapper">
                 <div class="rc-container">
                     <img class="rc" :src="require('../assets/01 Intro _ Unplugged/PNG/05 Rice Cooker.png')" alt="rice cooker">
@@ -171,27 +173,29 @@
                 </div>
             </div>
             <GradientBar />
-            <p class="mb-5">
+            <div class="container">
+                <p class="mb-5">
                 At the start of each day, preparations are at hand due to a possible power interruption, which may or may not be announced. At 8:00 AM, Ignacio often wakes up early to assist with the morning chores. He ensures that his gadgets are charged and the possible lack of internet access is covered through cellular data. “I do all my chores in the morning and during the day so that I don’t get power outages at night,” he said.
-            </p>
-            <p class="mb-5">
-                Arbon Jr., on the other hand, looks ahead of his responsibilities and duties by considering alternatives and preparing contingencies the night before. Cooking is one of those duties. “If you cook at home with the use of a rice cooker, then, as a matter of contingency, you should have, or be able to finish cooking anything with your gas range.” 
-            </p>
-            <p class="mb-5">
-                Similarly, Radaza feels the need to anticipate power interruptions. However, she believes that the need for preparation also stems from anxiety. 
-            </p>
-
-            <Quotation>
-                <p>
-                “That paranoia—always charging the powerbanks in case of brownout. You know just having to save all the files—all the upcoming reminders of videos,” she said.
                 </p>
-            </Quotation>
+                <p class="mb-5">
+                    Arbon Jr., on the other hand, looks ahead of his responsibilities and duties by considering alternatives and preparing contingencies the night before. Cooking is one of those duties. “If you cook at home with the use of a rice cooker, then, as a matter of contingency, you should have, or be able to finish cooking anything with your gas range.” 
+                </p>
+                <p class="mb-5">
+                    Similarly, Radaza feels the need to anticipate power interruptions. However, she believes that the need for preparation also stems from anxiety. 
+                </p>
+
+                <Quotation>
+                    <p>
+                    “That paranoia—always charging the powerbanks in case of brownout. You know just having to save all the files—all the upcoming reminders of videos,” she said.
+                    </p>
+                </Quotation>
+            </div>
 
             <div class="pb-container center">
                 <img class="powerbank" :src="require('../assets/01 Intro _ Unplugged/PNG/07 Powerbank.png')" alt="powerbank">
             </div>
 
-            <p class="mb-5">
+            <p class="mb-5 container">
                 Moreover, Radaza is not the only person in her household that is affected by the energy insecurity in her region, as her mother still goes to the office for reliable internet and electricity.
             </p>
         </div>
@@ -225,14 +229,18 @@ export default {
             } catch {}
         },
         mapScroll() {
-            document.getElementById('maptxt').getBoundingClientRect().top - document.getElementById('maptxt').getBoundingClientRect().height/2 < 0
-            && document.getElementById('maptxt').getBoundingClientRect().bottom -  document.getElementById('maptxt').getBoundingClientRect().height/2> 0 
-            ? this.mapLit = true : this.mapLit = false
+            try {
+                document.getElementById('maptxt').getBoundingClientRect().top - document.getElementById('maptxt').getBoundingClientRect().height/2 <= 0
+                && document.getElementById('maptxt').getBoundingClientRect().bottom -  document.getElementById('maptxt').getBoundingClientRect().height/2> 0 
+                ? this.mapLit = true : this.mapLit = false
+            } catch {}
         },
         rcpScroll() {
-            document.getElementById('rcptxt').getBoundingClientRect().top - document.getElementById('rcptxt').getBoundingClientRect().height/2 < 0 
-            && document.getElementById('rcptxt').getBoundingClientRect().bottom -  document.getElementById('rcptxt').getBoundingClientRect().height/3> 0 
-            ? this.rcpFixed = true : this.rcpFixed = false
+            try {
+                document.getElementById('rcptxt').getBoundingClientRect().top - document.getElementById('rcptxt').getBoundingClientRect().height/2 < 0 
+                && document.getElementById('rcptxt').getBoundingClientRect().bottom -  document.getElementById('rcptxt').getBoundingClientRect().height/3> 0 
+                ? this.rcpFixed = true : this.rcpFixed = false
+            } catch {}
         },
         mapFlicker() {
             try {
@@ -336,6 +344,10 @@ export default {
     width: auto;
     height: 550px;
     transform: rotate(-13.95deg) translateX(-10%);
+
+    @include screen('lg') {
+        transform: rotate(-13.95deg) translateX(-12.5%);
+    }
 }
 
 .unplgd {

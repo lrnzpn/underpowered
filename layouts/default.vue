@@ -70,6 +70,14 @@ p {
     a {
         text-decoration: underline;
     }
+
+    @include screen('md') {
+        font-size: $font-size--4;
+    }
+
+    @include screen('xs') {
+        font-size: $font-size--4 -2;
+    }
 }
 
 .spacer {
@@ -201,6 +209,12 @@ p {
     align-items: flex-start;
 }
 
+.jc-sb-ai-fe {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .jc-space-between {
     display:flex;
     justify-content: space-between;
@@ -252,6 +266,10 @@ p {
 }
 
 .pt-80px {
-    padding-top: 80px;
+    padding-top: 5em;;
+
+    @include screen('md') {
+        padding-top: 3.25em;
+    }
 }
 </style>
