@@ -139,7 +139,7 @@ p {
 // fade
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity .5s;
 }
 
 .fade-enter,
@@ -201,13 +201,6 @@ p {
     align-items: flex-start;
 }
 
-.jc-sb-ai-fe {
-    display:flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-
 .jc-space-between {
     display:flex;
     justify-content: space-between;
@@ -216,6 +209,12 @@ p {
 
 .flex-column {
     flex-direction: column;
+}
+
+.jc-flex-start {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .jc-flex-end {
@@ -236,16 +235,23 @@ p {
     align-items: flex-end;
 }
 
-.stick-top {
-    top: 5em;
+.ai-flex-start {
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.fixed {
-    position: fixed;
+.sticky {
+    position: sticky;
+    top: 80px;
 }
 
 .px-3p {
     padding-left: 3%;
     padding-right: 3%;
+}
+
+.pt-80px {
+    padding-top: 80px;
 }
 </style>
