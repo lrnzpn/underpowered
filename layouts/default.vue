@@ -201,6 +201,12 @@ p {
     align-items: flex-start;
 }
 
+.jc-sb-ai-fe {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .jc-space-between {
     display:flex;
     justify-content: space-between;
