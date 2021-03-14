@@ -9,8 +9,11 @@
       <div class="sparks-1 flipped"></div>
     </div>
 
-    <div v-if="this.windowWidth > 991" class="haywire haywire--1 jc-sb-ai-fe mb-7 pb-7">
-      <div class="txt-wrapper px-3p w-50">
+    <div
+      v-if="this.windowWidth > 991"
+      class="haywire haywire--1 ai-flex-start mb-7 pb-7"
+    >
+      <div class="txt-wrapper px-3p w-50" id="pentxt">
         <p class="mb-5">
           These uncertainties—borne from power outages—naturally and adversely
           affect students’ productivity and even anxiety levels. Fluctuating
@@ -26,14 +29,16 @@
         </p>
       </div>
 
-      <div class="img-wrapper w-50">
-        <div class="pen-container">
-          <img
-            class="pen-1"
-            :src="require('../assets/04 Go Haywire/PNG/02 Pen White.png')"
-            alt="Pen"
-          />
-        </div>
+      <div class="img-wrapper w-50 sticky">
+        <transition name="fade">
+          <div v-if="this.penFixed" class="pen-container">
+            <img
+              class="pen-1"
+              :src="require('../assets/04 Go Haywire/PNG/02 Pen White.png')"
+              alt="Pen"
+            />
+          </div>
+        </transition>
       </div>
     </div>
     <div v-else class="haywire haywire--1 center">
@@ -65,19 +70,21 @@
 
     <div
       v-if="this.windowWidth > 991"
-      class="haywire haywire--2 jc-sb-ai-fe mt-7 pt-7 mb-7 pb-7"
+      class="haywire haywire--2 jc-sb-ai-fs mt-7 pt-7 mb-7 pb-7"
     >
-      <div class="img-wrapper canvas-img">
-        <div class="canvas-container">
-          <img
-            class="canvas-1"
-            :src="require('../assets/04 Go Haywire/PNG/03a Phone 110.png')"
-            alt="Phone"
-          />
-        </div>
+      <div class="img-wrapper canvas-img sticky">
+        <transition name="fade">
+          <div v-if="this.gadgetFixed" class="canvas-container">
+            <img
+              class="canvas-1"
+              :src="require('../assets/04 Go Haywire/PNG/03a Phone 110.png')"
+              alt="Phone"
+            />
+          </div>
+        </transition>
       </div>
 
-      <div class="txt-wrapper canvas px-3p">
+      <div class="txt-wrapper canvas px-3p" id="gadgettxt">
         <p class="mb-5">
           At 1:10 AM Cortez is, if not fast asleep, presumably winding down to
           do so. With no threat of future power interruptions in sight, he sees
@@ -101,14 +108,16 @@
         </p>
       </div>
 
-      <div class="img-wrapper canvas-img">
-        <div class="canvas-container">
-          <img
-            class="canvas-2"
-            :src="require('../assets/04 Go Haywire/PNG/04 Canvas.png')"
-            alt="Canvas"
-          />
-        </div>
+      <div class="img-wrapper canvas-img sticky">
+         <transition name="fade">
+            <div v-if="this.gadgetFixed" class="canvas-container">
+              <img
+                class="canvas-2"
+                :src="require('../assets/04 Go Haywire/PNG/04 Canvas.png')"
+                alt="Canvas"
+              />
+            </div>
+         </transition>
       </div>
     </div>
     <div v-else class="haywire haywire--1 center">
@@ -186,7 +195,7 @@
     </div>
 
     <div v-if="this.windowWidth > 991" class="haywire haywire--4 jc-sb-ai-fs">
-      <div class="txt-wrapper w-50 px-3p">
+      <div class="txt-wrapper w-50 px-3p" id="prescriptiontxt">
         <Quotation>
           <p>
             She says, “I don’t want to push my health just so I can get a better
@@ -195,13 +204,15 @@
         </Quotation>
       </div>
       <div class="img-wrapper w-50">
-        <div class="prescription-container">
-          <img
-            class="prescription"
-            :src="require('../assets/04 Go Haywire/PNG/05a Prescription.png')"
-            alt="Prescription"
-          />
-        </div>
+        <transition name="fade">
+          <div v-if="this.prescriptionFixed" class="prescription-container">
+            <img
+              class="prescription"
+              :src="require('../assets/04 Go Haywire/PNG/05a Prescription.png')"
+              alt="Prescription"
+            />
+          </div>
+        </transition>
       </div>
     </div>
     <div v-else class="haywire haywire--1 center">
@@ -216,8 +227,8 @@
           </div>
           <Quotation>
             <p>
-              She says, “I don’t want to push my health just so I can get a better
-              connection for myself.”
+              She says, “I don’t want to push my health just so I can get a
+              better connection for myself.”
             </p>
           </Quotation>
         </div>
@@ -291,6 +302,9 @@ export default {
   data() {
     return {
       windowWidth: 0,
+      penFixed: false,
+      gadgetFixed: false,
+      prescriptionFixed: false,
     };
   },
   methods: {
@@ -298,10 +312,47 @@ export default {
       this.windowWidth = window.innerWidth;
       console.log(this.windowWidth);
     },
+    penScroll() {
+      document.getElementById("pentxt").getBoundingClientRect().top -
+        document.getElementById("pentxt").getBoundingClientRect().height / 1.5 <
+        0 &&
+      document.getElementById("pentxt").getBoundingClientRect().bottom -
+        document.getElementById("pentxt").getBoundingClientRect().height / 1.5 >
+        0
+        ? (this.penFixed = true)
+        : (this.penFixed = false);
+    },
+    gadgetScroll() {
+      document.getElementById("gadgettxt").getBoundingClientRect().top -
+        document.getElementById("gadgettxt").getBoundingClientRect().height / 3 <
+        0 &&
+      document.getElementById("gadgettxt").getBoundingClientRect().bottom -
+        document.getElementById("gadgettxt").getBoundingClientRect().height / 3 >
+        0
+        ? (this.gadgetFixed = true)
+        : (this.gadgetFixed = false);
+    },
+    prescriptionScroll() {
+      document.getElementById("prescriptiontxt").getBoundingClientRect().top -
+        document.getElementById("prescriptiontxt").getBoundingClientRect().height / 1.5 <
+        0 &&
+      document.getElementById("prescriptiontxt").getBoundingClientRect().bottom -
+        document.getElementById("prescriptiontxt").getBoundingClientRect().height / 1.5 >
+        0
+        ? (this.prescriptionFixed = true)
+        : (this.prescriptionFixed = false);
+    },
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
+  },
+  updated() {
+    window.addEventListener("scroll", () => {
+      this.penScroll();
+      this.gadgetScroll();
+      this.prescriptionScroll();
+    });
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
@@ -343,13 +394,51 @@ export default {
   }
 }
 
-.pen-1 {
-  height: 400px;
+.haywire {
+  &--1 {
+    margin-top: 10em;
 
-  &.mobile {
-    height: 150px;
+    .sticky {
+      top: 20%;
+    }
+
+    .pen-container {
+      padding-left: 7rem;
+
+      .pen-1 {
+        // height: 350px;
+        width: 120%;
+
+        &.mobile {
+          height: 150px;
+        }
+      }
+    }
+  }
+
+  &--4 {
+    .txt-wrapper {
+      height: 600px;
+    }
+
+    .prescription-container {
+        height: 550px;
+        padding-top: 2rem;
+
+        .prescription {
+          width: 60%;
+          transform: rotate(340deg);
+          left: 50%;
+        }
+
+        &.mobile {
+          height: 350px;
+          padding-top: 1rem;
+        }
+      }
   }
 }
+
 
 .txt-wrapper.canvas {
   width: 55%;
@@ -390,27 +479,4 @@ export default {
   overflow: hidden;
 }
 
-.prescription-container {
-  height: 600px;
-  padding-top: 2rem;
-
-  &.mobile {
-    height: 350px;
-    padding-top: 1rem;
-  }
-}
-
-.prescription {
-  width: 60%;
-  transform: rotate(340deg);
-  left: 50%;
-}
-
-.haywire {
-  &--1 {
-    .txt-wrapper {
-      margin-top: 10em;
-    }
-  }
-}
 </style>
