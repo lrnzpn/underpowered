@@ -42,7 +42,7 @@
             </div>
         </div> 
         <div v-else class="unplgd unplgd--1 center">
-            <div class="content-wrapper">
+            <div class="content-wrapper mt-5">
                 <p class="mb-5 container">
                     Ethan Cortez* is a college student living in the National Capital Region, an energy secure area. He rarely experiences power interruptions and his normal routine is drastically different from those who face the absence of electricity regularly.
                 </p>
@@ -52,7 +52,7 @@
                         <img class="gadgets" :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-OFF.png')" alt="gadgets">
                     </div>
 
-                    <p class="mb-5">
+                    <p class="mt-4 mb-5">
                         With no threat of early power interruptions, Cortez usually wakes up at 11:00 AM and immediately checks his phone. He starts his day with breakfast while watching videos on his iPad. After breakfast, he greets his mother who is working in her home office before sitting in front of his computer, ready for the rest of the day.
                     </p>
                     <p class="mb-5">
@@ -84,7 +84,7 @@
             </div>
             <div v-else class="center">
                 <div class="content-wrapper">
-                    <p class="mb-5">
+                    <p class="mb-7">
                         Despite the best efforts of people who live in energy-insecure areas to mitigate their decreased productivity, losing power in the morning still delays the entire day. 
                     </p>
 
@@ -92,7 +92,7 @@
                         <img class="map-on" :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" alt="">
                     </div>
 
-                    <p class="mb-5">
+                    <p class="mt-7 mb-5">
                         The routines of college students such as Pam Radaza, Juan Paolo Ignacio, and Primo Arbon Jr., are affected by power loss. Radaza and Ignacio both hail from Mindanao and live in Butuan City and Malaybalay City, respectively. Meanwhile, Arbon Jr. is from Dumaguete City in Negros Oriental. Despite living in different regions, they share similar experiences with energy insecurity.
                     </p>
                 </div>
@@ -164,7 +164,7 @@
             </div>
         </div>
         <div v-else class="content-wrapper">
-            <div class="img-wrapper">
+            <div class="img-wrapper rcp-mob-wrapper">
                 <div class="rc-container">
                     <img class="rc" :src="require('../assets/01 Intro _ Unplugged/PNG/05 Rice Cooker.png')" alt="rice cooker">
                 </div>
@@ -174,7 +174,7 @@
             </div>
             <GradientBar />
             <div class="container">
-                <p class="mb-5">
+                <p class="mt-5 mb-5">
                 At the start of each day, preparations are at hand due to a possible power interruption, which may or may not be announced. At 8:00 AM, Ignacio often wakes up early to assist with the morning chores. He ensures that his gadgets are charged and the possible lack of internet access is covered through cellular data. “I do all my chores in the morning and during the day so that I don’t get power outages at night,” he said.
                 </p>
                 <p class="mb-5">
@@ -191,7 +191,7 @@
                 </Quotation>
             </div>
 
-            <div class="pb-container center">
+            <div class="pb-container center mt-6 mb-4">
                 <img class="powerbank" :src="require('../assets/01 Intro _ Unplugged/PNG/07 Powerbank.png')" alt="powerbank">
             </div>
 
@@ -276,6 +276,14 @@ export default {
 .gadgets {
     width: 90%;
     height: 100%;
+
+    @include screen('md') {
+        width: 80%;
+    }
+
+    @include screen('xs') {
+        width: 70%;
+    }
 }
 
 .map {
@@ -289,8 +297,13 @@ export default {
 
 .map-on {
     height: 300px;
-    @include screen('sm') {
+
+    @include screen('md') {
         height: 200px;
+    }
+
+    @include screen('sm') {
+        height: 150px;
     }
 }
 
@@ -324,10 +337,11 @@ export default {
 
     @include screen('md') {
         left: 0;
+        height: 300px;
     }
 
-    @include screen('sm') {
-        height: 300px;
+    @include screen('xs') {
+        height: 150px;
     }
 }
 
@@ -335,8 +349,12 @@ export default {
     width: auto;
     height: 600px;
 
-    @include screen('sm') {
-        height: 400px;
+    @include screen('md') {
+        height: 450px;
+    }
+
+    @include screen('xs') {
+        height: 300px;
     }
 }
 
@@ -347,6 +365,15 @@ export default {
 
     @include screen('lg') {
         transform: rotate(-13.95deg) translateX(-12.5%);
+    }
+
+    @include screen('md') {
+        height: 450px;
+        transform: rotate(-13.95deg);
+    }
+
+    @include screen('xs') {
+        height: 300px;
     }
 }
 
@@ -364,6 +391,11 @@ export default {
             } 
         }
     }
+}
+
+.rcp-mob-wrapper {
+    width:80%;
+    margin: auto;
 }
 
 .rcp-container {

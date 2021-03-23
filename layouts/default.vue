@@ -54,6 +54,14 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     font-size: $font-size--8;
+
+    @include screen('md') {
+        font-size: $font-size--7;
+    }
+
+    @include screen('xs') {
+        font-size: $font-size--6;
+    }
 }
 
 a, p, span, button {
@@ -76,7 +84,7 @@ p {
     }
 
     @include screen('xs') {
-        font-size: $font-size--4 -2;
+        font-size: $font-size--4 * .9;
     }
 }
 

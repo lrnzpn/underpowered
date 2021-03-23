@@ -1,7 +1,7 @@
 <template>
   <div class="loading-screen">
       <div class="loading-screen-header center flex-column mt-7 mb-7">
-            <h1>Loading Screen</h1>
+            <h1 class="mb-1">Loading Screen</h1>
             <img v-if="this.windowWidth > 991"  :src="require('../assets/02 Loading Screen/GIF/01-Loading.gif')" alt="loading...">
             <img v-else :src="require('../assets/02 Loading Screen/PNG/01 Loading.png')" alt="loading...">
       </div>
@@ -113,7 +113,7 @@
         
         <div v-else class="center flex-column">
             <div class="img-wrapper center">
-                <div class="bulb-container">
+                <div class="bulb-container mb-5">
                     <img :src="require('../assets/02 Loading Screen/PNG/03 Lightbulb-OFF.png')" alt="lightbulb off">
                 </div>
             </div>
@@ -147,10 +147,10 @@
           </div>
           <div v-else class="center flex-column">
                 <div class="txt-wrapper">
-                    <p>Students like Radaza and Ignacio are resigned to the constant power interruptions, as they have been there their entire lives. It is difficult to find solutions for power interruptions because a lot of the options, such as buying a generator, are expensive. Instead, they try to invest in better internet connection for online classes since it is easier to control.</p>
+                    <p class="mb-6">Students like Radaza and Ignacio are resigned to the constant power interruptions, as they have been there their entire lives. It is difficult to find solutions for power interruptions because a lot of the options, such as buying a generator, are expensive. Instead, they try to invest in better internet connection for online classes since it is easier to control.</p>
                 </div>
                 <div class="img-wrapper center">
-                    <div class="data-container">
+                    <div class="data-container data-mob center">
                         <img :src="require('../assets/02 Loading Screen/PNG/04 3G Sim.png')" alt="3g">
                     </div>
                 </div>
@@ -231,12 +231,20 @@ export default {
     img {
         width: 400px;
         height: 100%;
+
+        @include screen('md') {
+            width: 300px;
+        }
     }
 }
 
 .ls--1 {
     .img-wrapper {
         width: 60%;
+        @include screen('md') {
+            width: 100%;
+        }
+
         img {
             width: 75%;
             height: 100%;
@@ -251,10 +259,9 @@ export default {
         width: 100%;
     }
 
-    .container {
-        .img-wrapper {
-            width: 100%;
-        }
+    @include screen('md') {
+        margin-bottom: 1em;
+        padding-bottom: 0;
     }
 }
 
@@ -280,9 +287,13 @@ export default {
             right: -5%;
 
             @include screen('md') {
-                right: auto;
+                right: unset;
             }
         }
+    }
+
+    @include screen('md') {
+        padding-top: 0;
     }
 }
 
@@ -296,6 +307,12 @@ export default {
         visibility: hidden;
         opacity: 0;
         width: 100%;
+    }
+}
+
+.data-mob {
+    img {
+        width: 80%;
     }
 }
 </style>
