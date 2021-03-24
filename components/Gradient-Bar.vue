@@ -11,7 +11,7 @@
     background-size: contain;
     background-position: center;
 
-    @include screen('sm') {
+    @include screen('md') {
         height: 1em
     }
 
