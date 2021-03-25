@@ -71,7 +71,7 @@
             </div>
 
             <div class="banner-container jc-flex-end">
-                <img :src="require('../assets/01 Intro _ Unplugged/PNG/02 Landscape TRANSPARENT.png')" alt="">
+                <img :src="require('../assets/01 Intro _ Unplugged/PNG/02 Landscape TRANSPARENT.png')" alt="banner">
             </div>
 
       </section>
@@ -155,16 +155,15 @@ export default {
 }
 
 .banner-container {
-    height: 5em;
-    bottom: -5em;
+    
     img {
         width: 100%;
         height: auto;
-    }
+        bottom: -5em;
 
-    @include screen('md') {
-        height: 3.25em;
-        bottom: -3.25em;
+        @include screen('md') {
+            bottom: -3.25em;
+        }
     }
 }
 

@@ -51,7 +51,7 @@ button {
         width: 100%;
     }
 
-    @include screen('sm') {
+    @include screen('md') {
         display: none;
     }
 }
@@ -68,7 +68,7 @@ button {
   pointer-events: all;
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-    @include screen('sm') {
+    @include screen('md') {
         display: block;
     }
 

@@ -288,10 +288,10 @@ export default {
 
 .map {
     height: 300px;
-    background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png');
+    background-image: url('../assets/01 Intro _ Unplugged/PNG/(4) Lights On (Fixed).png');
 
     &.flicker {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Lights Off (Fixed).png')
     }
 }
 
@@ -314,19 +314,19 @@ export default {
 
 @keyframes mapFlicker {
     0% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/(4) Lights On (Fixed).png')
     }
 
     33% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Lights Off (Fixed).png')
     }
 
     66% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/(4) Lights On (Fixed).png')
     }
 
     100% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Lights Off (Fixed).png')
     }
 }
 
