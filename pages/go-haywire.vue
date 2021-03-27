@@ -399,17 +399,6 @@ export default {
           this.prescriptionFilled = false;
         }
       }
-      // if (
-      //   document.getElementById("she-says") &&
-      //   document.getElementById("prescription") &&
-      //   document.getElementById("she-says").getBoundingClientRect().top -
-      //     80 <=
-      //     document.getElementById("prescription").getBoundingClientRect().top
-      // ) {
-      //   this.prescriptionFilled = false;
-      // } else {
-      //   this.prescriptionFilled = true;
-      // }
     },
     prescriptionScroll() {
       document.getElementById("prescriptiontxt").getBoundingClientRect().top -

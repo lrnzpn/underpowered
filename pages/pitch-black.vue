@@ -173,7 +173,7 @@
               :src="
                 require('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
               "
-              alt="rice cooker"
+              alt="Flashlight"
             />
           </div>
         </div>
@@ -239,7 +239,7 @@
     <div v-if="this.windowWidth > 991" class="ptchblk ptchblk--4 container">
       <div class="ai-flex-start pt-7 pb-7 mt-7 mb-7">
         <div class="img-wrapper w-50">
-          <!-- <transition name="fade">
+          <transition name="fade">
             <div v-if="this.dumagueteFixed" class="dumaguete-container">
               <img
                 class="dumaguete"
@@ -249,7 +249,7 @@
                 alt="Dumaguete"
               />
             </div>
-          </transition> -->
+          </transition>
         </div>
         <div class="txt-wrapper w-50 pt-7" id="dumaguetetxt">
           <p class="mb-5">
@@ -267,9 +267,18 @@
     <div v-if="this.windowWidth > 991" class="ptchblk ptchblk--5 container">
       <div class="center mt-7 mb-7 pb-7">
         <div class="img-wrapper w-50">
-          <!-- <transition name="fade">
+          <transition name="fade">
             <div v-if="this.mindanaoFixed" class="mindanao-container">
               <img
+                v-if="this.mindanaoLit"
+                class="mindanao"
+                :src="
+                  require('../assets/03 Pitch Black/PNG/04 Mindanao Complete ON.png')
+                "
+                alt="Mindanao"
+              />
+              <img
+                v-else
                 class="mindanao"
                 :src="
                   require('../assets/03 Pitch Black/PNG/04 Mindanao Complete.png')
@@ -277,7 +286,7 @@
                 alt="Mindanao"
               />
             </div>
-          </transition> -->
+          </transition>
         </div>
         <div class="txt-wrapper w-50" id="mindanaotxt">
           <p class="mb-5">
@@ -287,7 +296,7 @@
             likewise subject to weather conditions—particularly during the dry
             season—and their output, therefore, is seasonal. In 2015, water
             levels for both power plants reached critical levels, resulting in
-            lowered power supply in Mindanao.
+            <span id="lowered-power-supply">lowered power supply</span> in Mindanao.
           </p>
           <p class="mb-5">
             Given their finite nature, renewable energy facilities dominating
@@ -374,6 +383,7 @@ export default {
       manilaFixed: false,
       flashlightFixed: false,
       dumagueteFixed: false,
+      mindanaoLit: false,
       mindanaoFixed: false,
     };
   },
@@ -432,6 +442,19 @@ export default {
         ? (this.dumagueteFixed = true)
         : (this.dumagueteFixed = false);
     },
+    mindanaoLitScroll() {
+      const loweredPower = document.getElementById("lowered-power-supply");
+      // console.log("power: " + loweredPower)
+      // console.log("window: " + window.innerHeight)
+      if(loweredPower) {
+        if(window.innerHeight/2 >= loweredPower.getBoundingClientRect().top) {
+          this.mindanaoLit = true;
+        }
+        else {
+          this.mindanaoLit = false;
+        }
+      }
+    },
     mindanaoScroll() {
       document.getElementById("mindanaotxt").getBoundingClientRect().top -
         document.getElementById("mindanaotxt").getBoundingClientRect().height /
@@ -441,8 +464,8 @@ export default {
         document.getElementById("mindanaotxt").getBoundingClientRect().height /
           2 >
         0
-        ? (this.dumagueteFixed = true)
-        : (this.dumagueteFixed = false);
+        ? (this.mindanaoFixed = true)
+        : (this.mindanaoFixed = false);
     },
   },
   mounted() {
@@ -457,6 +480,7 @@ export default {
       this.flashlightScroll();
       this.dumagueteScroll();
       this.mindanaoScroll();
+      this.mindanaoLitScroll();
     });
   },
   beforeDestroy() {
