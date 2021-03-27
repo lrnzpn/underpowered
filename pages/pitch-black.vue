@@ -201,7 +201,7 @@
             <img
               class="flashlight"
               :src="
-                require('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
+                require('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
               "
               alt="Flashlight"
             />
@@ -239,7 +239,7 @@
     <div v-if="this.windowWidth > 991" class="ptchblk ptchblk--4 container">
       <div class="ai-flex-start pt-7 pb-7 mt-7 mb-7">
         <div class="img-wrapper w-50">
-          <transition name="fade">
+          <!-- <transition name="fade">
             <div v-if="this.dumagueteFixed" class="dumaguete-container">
               <img
                 class="dumaguete"
@@ -249,7 +249,7 @@
                 alt="Dumaguete"
               />
             </div>
-          </transition>
+          </transition> -->
         </div>
         <div class="txt-wrapper w-50 pt-7" id="dumaguetetxt">
           <p class="mb-5">
@@ -267,7 +267,7 @@
     <div v-if="this.windowWidth > 991" class="ptchblk ptchblk--5 container">
       <div class="center mt-7 mb-7 pb-7">
         <div class="img-wrapper w-50">
-          <transition name="fade">
+          <!-- <transition name="fade">
             <div v-if="this.mindanaoFixed" class="mindanao-container">
               <img
                 class="mindanao"
@@ -277,7 +277,7 @@
                 alt="Mindanao"
               />
             </div>
-          </transition>
+          </transition> -->
         </div>
         <div class="txt-wrapper w-50" id="mindanaotxt">
           <p class="mb-5">

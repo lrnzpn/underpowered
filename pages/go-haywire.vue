@@ -76,7 +76,23 @@
         <transition name="fade">
           <div v-if="this.gadgetFixed" class="canvas-container">
             <img
+              v-if="this.gadget115"
               class="canvas-1"
+              id="canvas-1"
+              :src="require('../assets/04 Go Haywire/PNG/03b Phone 115.png')"
+              alt="Phone"
+            />
+            <img
+              v-else-if="this.gadgetOff"
+              class="canvas-1"
+              id="canvas-1"
+              :src="require('../assets/04 Go Haywire/PNG/03c Phone OFF.png')"
+              alt="Phone"
+            />
+            <img
+              v-else
+              class="canvas-1"
+              id="canvas-1"
               :src="require('../assets/04 Go Haywire/PNG/03a Phone 110.png')"
               alt="Phone"
             />
@@ -92,13 +108,15 @@
           responsibilities he can revisit tomorrow.
         </p>
         <p class="mb-5">
-          After five minutes of scrolling through his phone once more, he turns
-          off the lights and calls it a day.
+          After <span id="five-minutes">five minutes</span> of scrolling through
+          his phone once more, he turns off the lights and calls it a day.
         </p>
         <p class="mb-5">
           As the clock strikes 1:00 AM, it is not uncommon to see that the
           students of the energy insecure households are still working without
-          power as they are glued to their devices answering online modules.
+          power as they are
+          <span id="phone-off">glued to their devices</span> answering online
+          modules.
         </p>
         <p class="mb-5">
           Because of the need to utilize daylight to accomplish household
@@ -109,15 +127,15 @@
       </div>
 
       <div class="img-wrapper canvas-img sticky">
-         <transition name="fade">
-            <div v-if="this.gadgetFixed" class="canvas-container">
-              <img
-                class="canvas-2"
-                :src="require('../assets/04 Go Haywire/PNG/04 Canvas.png')"
-                alt="Canvas"
-              />
-            </div>
-         </transition>
+        <transition name="fade">
+          <div v-if="this.gadgetFixed" class="canvas-container">
+            <img
+              class="canvas-2"
+              :src="require('../assets/04 Go Haywire/PNG/04 Canvas.png')"
+              alt="Canvas"
+            />
+          </div>
+        </transition>
       </div>
     </div>
     <div v-else class="haywire haywire--1 center">
@@ -198,7 +216,7 @@
       <div class="txt-wrapper w-50 px-3p" id="prescriptiontxt">
         <Quotation>
           <p>
-            She says, “I don’t want to push my health just so I can get a better
+            <span id="she-says">She says</span>, “I don’t want to push my health just so I can get a better
             connection for myself.”
           </p>
         </Quotation>
@@ -207,6 +225,15 @@
         <transition name="fade">
           <div v-if="this.prescriptionFixed" class="prescription-container">
             <img
+              v-if="this.prescriptionFilled"
+              id="prescription"
+              class="prescription"
+              :src="require('../assets/04 Go Haywire/PNG/05b Prescription FILLED.png')"
+              alt="Prescription"
+            />
+            <img
+              v-else
+              id="prescription"
               class="prescription"
               :src="require('../assets/04 Go Haywire/PNG/05a Prescription.png')"
               alt="Prescription"
@@ -304,7 +331,10 @@ export default {
       windowWidth: 0,
       penFixed: false,
       gadgetFixed: false,
+      gadget115: false,
+      gadgetOff: false,
       prescriptionFixed: false,
+      prescriptionFilled: false,
     };
   },
   methods: {
@@ -324,20 +354,74 @@ export default {
     },
     gadgetScroll() {
       document.getElementById("gadgettxt").getBoundingClientRect().top -
-        document.getElementById("gadgettxt").getBoundingClientRect().height / 3 <
+        document.getElementById("gadgettxt").getBoundingClientRect().height /
+          3 <
         0 &&
       document.getElementById("gadgettxt").getBoundingClientRect().bottom -
-        document.getElementById("gadgettxt").getBoundingClientRect().height / 3 >
+        document.getElementById("gadgettxt").getBoundingClientRect().height /
+          3 >
         0
         ? (this.gadgetFixed = true)
         : (this.gadgetFixed = false);
     },
+    gadgetChangeScroll() {
+      if (
+        document.getElementById("five-minutes") &&
+        document.getElementById("canvas-1") &&
+        document.getElementById("five-minutes").getBoundingClientRect().top -
+          80 <=
+          document.getElementById("canvas-1").getBoundingClientRect().top
+      ) {
+        this.gadget115 = true;
+      } else {
+        this.gadget115 = false;
+      }
+
+      if (
+        document.getElementById("phone-off") &&
+        document.getElementById("canvas-1") &&
+        document.getElementById("phone-off").getBoundingClientRect().top - 10 <=
+          document.getElementById("canvas-1").getBoundingClientRect().top
+      ) {
+        this.gadgetOff = true;
+        this.gadget115 = false;
+      } else {
+        this.gadgetOff = false;
+      }
+    },
+    prescriptionFilledScroll() {
+      const sheSays = document.getElementById("she-says");
+      if(sheSays) {
+        if(window.innerHeight/2.5 >= sheSays.getBoundingClientRect().top) {
+          this.prescriptionFilled = true;
+        }
+        else {
+          this.prescriptionFilled = false;
+        }
+      }
+      // if (
+      //   document.getElementById("she-says") &&
+      //   document.getElementById("prescription") &&
+      //   document.getElementById("she-says").getBoundingClientRect().top -
+      //     80 <=
+      //     document.getElementById("prescription").getBoundingClientRect().top
+      // ) {
+      //   this.prescriptionFilled = false;
+      // } else {
+      //   this.prescriptionFilled = true;
+      // }
+    },
     prescriptionScroll() {
       document.getElementById("prescriptiontxt").getBoundingClientRect().top -
-        document.getElementById("prescriptiontxt").getBoundingClientRect().height / 1.5 <
+        document.getElementById("prescriptiontxt").getBoundingClientRect()
+          .height /
+          1.5 <
         0 &&
-      document.getElementById("prescriptiontxt").getBoundingClientRect().bottom -
-        document.getElementById("prescriptiontxt").getBoundingClientRect().height / 1.5 >
+      document.getElementById("prescriptiontxt").getBoundingClientRect()
+        .bottom -
+        document.getElementById("prescriptiontxt").getBoundingClientRect()
+          .height /
+          1.5 >
         0
         ? (this.prescriptionFixed = true)
         : (this.prescriptionFixed = false);
@@ -351,7 +435,9 @@ export default {
     window.addEventListener("scroll", () => {
       this.penScroll();
       this.gadgetScroll();
+      this.gadgetChangeScroll();
       this.prescriptionScroll();
+      this.prescriptionFilledScroll();
     });
   },
   beforeDestroy() {
@@ -422,23 +508,23 @@ export default {
     }
 
     .prescription-container {
-        height: 550px;
-        padding-top: 2rem;
+      height: 550px;
+      padding-top: 2rem;
+      padding-bottom: 4rem;
 
-        .prescription {
-          width: 60%;
-          transform: rotate(340deg);
-          left: 50%;
-        }
-
-        &.mobile {
-          height: 350px;
-          padding-top: 1rem;
-        }
+      .prescription {
+        width: 60%;
+        transform: rotate(340deg);
+        left: 50%;
       }
+
+      &.mobile {
+        height: 350px;
+        padding-top: 1rem;
+      }
+    }
   }
 }
-
 
 .txt-wrapper.canvas {
   width: 55%;
@@ -446,6 +532,10 @@ export default {
 
 .img-wrapper.canvas-img {
   width: 25%;
+
+  &.sticky {
+    top: 20%;
+  }
 }
 
 .canvas-1 {
@@ -478,5 +568,4 @@ export default {
 .prescription-container {
   overflow: hidden;
 }
-
 </style>
