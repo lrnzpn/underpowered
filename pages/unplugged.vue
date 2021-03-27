@@ -11,7 +11,8 @@
         <div v-if="this.windowWidth > 991" class="unplgd unplgd--1 jc-sb-ai-fs">
             <div class="img-wrapper w-50 sticky">
                 <div class="gadgets-container">
-                    <img 
+                    <transition name=fade>
+                        <img 
                         v-if="this.gadgetLit"
                         class="gadgets" 
                         id="gadgets" 
@@ -23,6 +24,7 @@
                         id="gadgets" 
                         :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-OFF.png')" 
                         alt="gadgets">
+                    </transition>
                 </div>
             </div>
 
@@ -40,7 +42,7 @@
             </div>
         </div> 
         <div v-else class="unplgd unplgd--1 center">
-            <div class="content-wrapper">
+            <div class="content-wrapper mt-5">
                 <p class="mb-5 container">
                     Ethan Cortez* is a college student living in the National Capital Region, an energy secure area. He rarely experiences power interruptions and his normal routine is drastically different from those who face the absence of electricity regularly.
                 </p>
@@ -50,7 +52,7 @@
                         <img class="gadgets" :src="require('../assets/01 Intro _ Unplugged/PNG/03 Gadgets-OFF.png')" alt="gadgets">
                     </div>
 
-                    <p class="mb-5">
+                    <p class="mt-4 mb-5">
                         With no threat of early power interruptions, Cortez usually wakes up at 11:00 AM and immediately checks his phone. He starts his day with breakfast while watching videos on his iPad. After breakfast, he greets his mother who is working in her home office before sitting in front of his computer, ready for the rest of the day.
                     </p>
                     <p class="mb-5">
@@ -82,7 +84,7 @@
             </div>
             <div v-else class="center">
                 <div class="content-wrapper">
-                    <p class="mb-5">
+                    <p class="mb-7">
                         Despite the best efforts of people who live in energy-insecure areas to mitigate their decreased productivity, losing power in the morning still delays the entire day. 
                     </p>
 
@@ -90,7 +92,7 @@
                         <img class="map-on" :src="require('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')" alt="">
                     </div>
 
-                    <p class="mb-5">
+                    <p class="mt-7 mb-5">
                         The routines of college students such as Pam Radaza, Juan Paolo Ignacio, and Primo Arbon Jr., are affected by power loss. Radaza and Ignacio both hail from Mindanao and live in Butuan City and Malaybalay City, respectively. Meanwhile, Arbon Jr. is from Dumaguete City in Negros Oriental. Despite living in different regions, they share similar experiences with energy insecurity.
                     </p>
                 </div>
@@ -134,7 +136,7 @@
 
             <GradientBar />
 
-            <div class="unplgd unplgd--4 container mb-7 pb-5">
+            <div class="unplgd unplgd--4 container">
                 <div class="ai-flex-start mt-7">
                     <div class="txt-wrapper w-50">
                         <p class="mb-7 pb-7">
@@ -161,8 +163,8 @@
                 </div>
             </div>
         </div>
-        <div v-else class="content-wrapper container">
-            <div class="img-wrapper">
+        <div v-else class="content-wrapper">
+            <div class="img-wrapper rcp-mob-wrapper">
                 <div class="rc-container">
                     <img class="rc" :src="require('../assets/01 Intro _ Unplugged/PNG/05 Rice Cooker.png')" alt="rice cooker">
                 </div>
@@ -171,27 +173,29 @@
                 </div>
             </div>
             <GradientBar />
-            <p class="mb-5">
+            <div class="container">
+                <p class="mt-5 mb-5">
                 At the start of each day, preparations are at hand due to a possible power interruption, which may or may not be announced. At 8:00 AM, Ignacio often wakes up early to assist with the morning chores. He ensures that his gadgets are charged and the possible lack of internet access is covered through cellular data. “I do all my chores in the morning and during the day so that I don’t get power outages at night,” he said.
-            </p>
-            <p class="mb-5">
-                Arbon Jr., on the other hand, looks ahead of his responsibilities and duties by considering alternatives and preparing contingencies the night before. Cooking is one of those duties. “If you cook at home with the use of a rice cooker, then, as a matter of contingency, you should have, or be able to finish cooking anything with your gas range.” 
-            </p>
-            <p class="mb-5">
-                Similarly, Radaza feels the need to anticipate power interruptions. However, she believes that the need for preparation also stems from anxiety. 
-            </p>
-
-            <Quotation>
-                <p>
-                “That paranoia—always charging the powerbanks in case of brownout. You know just having to save all the files—all the upcoming reminders of videos,” she said.
                 </p>
-            </Quotation>
+                <p class="mb-5">
+                    Arbon Jr., on the other hand, looks ahead of his responsibilities and duties by considering alternatives and preparing contingencies the night before. Cooking is one of those duties. “If you cook at home with the use of a rice cooker, then, as a matter of contingency, you should have, or be able to finish cooking anything with your gas range.” 
+                </p>
+                <p class="mb-5">
+                    Similarly, Radaza feels the need to anticipate power interruptions. However, she believes that the need for preparation also stems from anxiety. 
+                </p>
 
-            <div class="pb-container center">
+                <Quotation>
+                    <p>
+                    “That paranoia—always charging the powerbanks in case of brownout. You know just having to save all the files—all the upcoming reminders of videos,” she said.
+                    </p>
+                </Quotation>
+            </div>
+
+            <div class="pb-container center mt-6 mb-4">
                 <img class="powerbank" :src="require('../assets/01 Intro _ Unplugged/PNG/07 Powerbank.png')" alt="powerbank">
             </div>
 
-            <p class="mb-5">
+            <p class="mb-5 container">
                 Moreover, Radaza is not the only person in her household that is affected by the energy insecurity in her region, as her mother still goes to the office for reliable internet and electricity.
             </p>
         </div>
@@ -225,14 +229,18 @@ export default {
             } catch {}
         },
         mapScroll() {
-            document.getElementById('maptxt').getBoundingClientRect().top - document.getElementById('maptxt').getBoundingClientRect().height/2 < 0
-            && document.getElementById('maptxt').getBoundingClientRect().bottom -  document.getElementById('maptxt').getBoundingClientRect().height/2> 0 
-            ? this.mapLit = true : this.mapLit = false
+            try {
+                document.getElementById('maptxt').getBoundingClientRect().top - document.getElementById('maptxt').getBoundingClientRect().height/2 <= 0
+                && document.getElementById('maptxt').getBoundingClientRect().bottom -  document.getElementById('maptxt').getBoundingClientRect().height/2> 0 
+                ? this.mapLit = true : this.mapLit = false
+            } catch {}
         },
         rcpScroll() {
-            document.getElementById('rcptxt').getBoundingClientRect().top - document.getElementById('rcptxt').getBoundingClientRect().height/2 < 0 
-            && document.getElementById('rcptxt').getBoundingClientRect().bottom -  document.getElementById('rcptxt').getBoundingClientRect().height/3> 0 
-            ? this.rcpFixed = true : this.rcpFixed = false
+            try {
+                document.getElementById('rcptxt').getBoundingClientRect().top - document.getElementById('rcptxt').getBoundingClientRect().height/2 < 0 
+                && document.getElementById('rcptxt').getBoundingClientRect().bottom -  document.getElementById('rcptxt').getBoundingClientRect().height/3> 0 
+                ? this.rcpFixed = true : this.rcpFixed = false
+            } catch {}
         },
         mapFlicker() {
             try {
@@ -268,21 +276,34 @@ export default {
 .gadgets {
     width: 90%;
     height: 100%;
+
+    @include screen('md') {
+        width: 80%;
+    }
+
+    @include screen('xs') {
+        width: 70%;
+    }
 }
 
 .map {
     height: 300px;
-    background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png');
+    background-image: url('../assets/01 Intro _ Unplugged/PNG/(4) Lights On (Fixed).png');
 
     &.flicker {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Lights Off (Fixed).png')
     }
 }
 
 .map-on {
     height: 300px;
-    @include screen('sm') {
+
+    @include screen('md') {
         height: 200px;
+    }
+
+    @include screen('sm') {
+        height: 150px;
     }
 }
 
@@ -293,19 +314,19 @@ export default {
 
 @keyframes mapFlicker {
     0% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/(4) Lights On (Fixed).png')
     }
 
     33% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Lights Off (Fixed).png')
     }
 
     66% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-ON.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/(4) Lights On (Fixed).png')
     }
 
     100% {
-        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Map-OFF.png')
+        background-image: url('../assets/01 Intro _ Unplugged/PNG/04 Lights Off (Fixed).png')
     }
 }
 
@@ -316,10 +337,11 @@ export default {
 
     @include screen('md') {
         left: 0;
+        height: 300px;
     }
 
-    @include screen('sm') {
-        height: 300px;
+    @include screen('xs') {
+        height: 150px;
     }
 }
 
@@ -327,8 +349,12 @@ export default {
     width: auto;
     height: 600px;
 
-    @include screen('sm') {
-        height: 400px;
+    @include screen('md') {
+        height: 450px;
+    }
+
+    @include screen('xs') {
+        height: 300px;
     }
 }
 
@@ -336,6 +362,19 @@ export default {
     width: auto;
     height: 550px;
     transform: rotate(-13.95deg) translateX(-10%);
+
+    @include screen('lg') {
+        transform: rotate(-13.95deg) translateX(-12.5%);
+    }
+
+    @include screen('md') {
+        height: 450px;
+        transform: rotate(-13.95deg);
+    }
+
+    @include screen('xs') {
+        height: 300px;
+    }
 }
 
 .unplgd {
@@ -352,6 +391,11 @@ export default {
             } 
         }
     }
+}
+
+.rcp-mob-wrapper {
+    width:80%;
+    margin: auto;
 }
 
 .rcp-container {

@@ -68,7 +68,7 @@ export default {
   width: 33%;
   border: 1px solid $asset-black;
 
-    @include screen('sm') {
+    @include screen('md') {
         top: 3.25em;
         width: 75%;
     }

@@ -71,7 +71,7 @@ export default {
         height: 5em;
         transition: height .5s ease-in-out;
         z-index: 999;
-        @include screen('sm') {
+        @include screen('md') {
             height: 3.25em;
         }
 
@@ -84,7 +84,7 @@ export default {
                 height: 100%;
                 width: 300px;
 
-                @include screen('sm') {
+                @include screen('md') {
                     width: 150px;
                 }
             }
@@ -103,7 +103,7 @@ export default {
                 color: $asset-yellow;
             }
 
-            @include screen('sm') {
+            @include screen('md') {
                 font-size: $font-size--4;
             }
         }

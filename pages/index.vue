@@ -5,12 +5,12 @@
           
             <div class="unpwrd-hdr-wrapper center flex-column">
                 <h1>Underpowered</h1>
-                <div class="credits center flex-column">
+                <div class="center flex-column">
                     <span class="d-block">By Kris M. Fetiza, Derick M. Gabrillo,</span>
                     <span class="d-block">and Zachary C. Gonzales</span>
                 </div>
                 
-                <div class="scroll center flex-column">
+                <div class="scroll center flex-column mt-5 mb-5">
                     <span class="d-block">Scroll</span>
                     <img :src="require('../assets/logos/expand_more-24px.svg')" alt="chevron" class="bounce">
                 </div>
@@ -55,7 +55,7 @@
                             alt="light-on">
                         </div>
 
-                        <p class="mb-5">
+                        <p class="mt-6 mb-1">
                             While energy security remains <a :href="this.articles.elusive">elusive</a> in some parts of the country, households from regions suffering from energy insecurity find themselves at a <a :href="this.articles.disadvantage">disadvantage</a> to those energy secure. 
                             To help struggling households and businesses amid the recession, the government is now pushing to <a :href="this.articles.reopen">re-open</a> businesses, a move which may see an uptick in electricity demand.
                         </p>
@@ -64,14 +64,14 @@
             </div>
 
             <div class="unpwrd unpwrd--2 container center">
-                <p class="w-50 mt-7 mb-7">
+                <p class="w-50 mt-5 mb-5">
                     The Philippines’ ever-changing electricity requirements has further strained the power industry that is now struggling to <a :href="this.articles.expand">expand</a> in pandemic conditions. 
                     As the country faces new demands from the “new normal,” those that live in energy-insecure areas—particularly rural regions—are disadvantaged compared to urban-based citizens.
                 </p>
             </div>
 
             <div class="banner-container jc-flex-end">
-                <img :src="require('../assets/01 Intro _ Unplugged/PNG/02 Landscape TRANSPARENT.png')" alt="">
+                <img :src="require('../assets/01 Intro _ Unplugged/PNG/02 Landscape TRANSPARENT.png')" alt="banner">
             </div>
 
       </section>
@@ -170,10 +170,15 @@ export default {
 }
 
 .banner-container {
+    
     img {
         width: 100%;
         height: auto;
-        position: absolute;
+        bottom: -5em;
+
+        @include screen('md') {
+            bottom: -3.25em;
+        }
     }
 }
 

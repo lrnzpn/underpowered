@@ -22,12 +22,21 @@ export default {
     @include screen('md') {
         width: 80%;
         height: .75em;
+        margin-top: 1em;
+    }
+
+    @include screen('xs') {
+        height: .5em;
     }
 }
 
 .quotation {
     width: 100%;
     height: 350px;
+
+    @include screen('md') {
+        height: auto;
+    }
 
     .qt-content {
         position: absolute;
@@ -47,6 +56,10 @@ export default {
 
             @include screen('lg') {
                 font-size: $font-size--6;
+            }
+
+            @include screen('md') {
+                font-size: $font-size--4;
             }
         }
     }
