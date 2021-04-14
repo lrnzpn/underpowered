@@ -242,9 +242,26 @@
           <transition name="fade">
             <div v-if="this.dumagueteFixed" class="dumaguete-container">
               <img
+                v-if="this.dumagueteStatus == 2"
                 class="dumaguete"
                 :src="
-                  require('../assets/03 Pitch Black/PNG/03 Dumaguete Complete.png')
+                  require('../assets/03 Pitch Black/PNG/03a Dumaguete Final.png')
+                "
+                alt="Dumaguete"
+              />
+              <img
+                v-else-if="this.dumagueteStatus == 1"
+                class="dumaguete"
+                :src="
+                  require('../assets/03 Pitch Black/PNG/03b Dumaguete Final.png')
+                "
+                alt="Dumaguete"
+              />
+              <img
+                v-else
+                class="dumaguete"
+                :src="
+                  require('../assets/03 Pitch Black/PNG/03c Dumaguete Final.png')
                 "
                 alt="Dumaguete"
               />
@@ -256,7 +273,7 @@
             Meanwhile, Arbon Jr.’s hometown—Dumaguete City—sources most of its
             electricity from geothermal and solar energy. Although mostly clean,
             the energy output from the nearby power plants is sometimes
-            insufficient and are subject to changes in weather. Recently, the
+            <span id="insufficient">insufficient</span> and are subject to changes in weather. Recently, the
             Negros Oriental II Electric Cooperative has been running on a daily
             power deficit.
           </p>
@@ -385,6 +402,7 @@ export default {
       flashlightFixed: false,
       flashlightFlicker: false,
       dumagueteFixed: false,
+      dumagueteStatus: 2,
       mindanaoLit: false,
       mindanaoFixed: false,
     };
@@ -466,6 +484,17 @@ export default {
         0
         ? (this.dumagueteFixed = true)
         : (this.dumagueteFixed = false);
+
+      var insufficient = document.getElementById("insufficient");
+      if(insufficient.getBoundingClientRect().top > 500) {
+        this.dumagueteStatus = 2;
+      }
+      else if(insufficient.getBoundingClientRect().top > 400) {
+        this.dumagueteStatus = 1;
+      }
+      else {
+        this.dumagueteStatus = 0;
+      }
     },
     mindanaoLitScroll() {
       const loweredPower = document.getElementById("lowered-power-supply");
