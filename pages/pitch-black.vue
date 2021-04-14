@@ -28,7 +28,8 @@
         <p class="mb-5">
           By evening, the last rays of sunlight fade as day yields to night and
           the world begins to wind down. At approximately 7:15 PM, all of the
-          students are preparing for dinner when an unexpected <span id="kitchen-candle">power outage</span>
+          students are preparing for dinner when an unexpected
+          <span id="kitchen-candle">power outage</span>
           occurs.
         </p>
         <p class="mb-5">Cortez rummages for a candle and some matches.</p>
@@ -48,35 +49,35 @@
       </div>
 
       <div class="img-wrapper kitchen-img sticky">
-          <transition name="kitchen-slide">
-            <img
-              v-if="this.kitchenLit"
-              class="kitchen-2"
-              id="kitchen-2"
-              v-bind:class="{
-                ml3: this.windowWidth > 991,
-                kitchenNotInFrame: this.kitchenNotInFrame,
-                kitchenLit: this.kitchenLit,
-              }"
-              :src="
-                require('../assets/03 Pitch Black/PNG/01c Kitchen Table ON.png')
-              "
-              alt="Kitchen 1b"
-            />
-            <img
-              v-else
-              class="kitchen-2"
-              id="kitchen-2"
-              v-bind:class="{
-                ml3: this.windowWidth > 991,
-                kitchenNotInFrame: this.kitchenNotInFrame,
-              }"
-              :src="
-                require('../assets/03 Pitch Black/PNG/01b Kitchen Table OFF.png')
-              "
-              alt="Kitchen 1b"
-            />
-          </transition>
+        <transition name="kitchen-slide">
+          <img
+            v-if="this.kitchenLit"
+            class="kitchen-2"
+            id="kitchen-2"
+            v-bind:class="{
+              ml3: this.windowWidth > 991,
+              kitchenNotInFrame: this.kitchenNotInFrame,
+              kitchenLit: this.kitchenLit,
+            }"
+            :src="
+              require('../assets/03 Pitch Black/PNG/01c Kitchen Table ON.png')
+            "
+            alt="Kitchen 1b"
+          />
+          <img
+            v-else
+            class="kitchen-2"
+            id="kitchen-2"
+            v-bind:class="{
+              ml3: this.windowWidth > 991,
+              kitchenNotInFrame: this.kitchenNotInFrame,
+            }"
+            :src="
+              require('../assets/03 Pitch Black/PNG/01b Kitchen Table OFF.png')
+            "
+            alt="Kitchen 1b"
+          />
+        </transition>
       </div>
     </div>
     <div v-else class="ptchblk ptchblk--1 center">
@@ -189,7 +190,7 @@
           using a gas range if one is available.
         </p>
         <p class="mb-5">
-          Power outages take longer to fix in energy insecure areas and, at
+          <span id="power-outage">Power outages</span> take longer to fix in energy insecure areas and, at
           times, can occur long throughout the night. Arbon Jr. recalled that
           power interruptions can occur at any time—be it dawn, dusk, or in
           between.
@@ -198,11 +199,10 @@
       <div class="img-wrapper w-50">
         <transition name="fade">
           <div v-if="this.flashlightFixed" class="flashlight-container">
-            <img
+            <div
+              id="flashlight"
               class="flashlight"
-              :src="
-                require('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
-              "
+              :class="{ 'flashlightFlicker': this.flashlightFlicker }"
               alt="Flashlight"
             />
           </div>
@@ -296,7 +296,8 @@
             likewise subject to weather conditions—particularly during the dry
             season—and their output, therefore, is seasonal. In 2015, water
             levels for both power plants reached critical levels, resulting in
-            <span id="lowered-power-supply">lowered power supply</span> in Mindanao.
+            <span id="lowered-power-supply">lowered power supply</span> in
+            Mindanao.
           </p>
           <p class="mb-5">
             Given their finite nature, renewable energy facilities dominating
@@ -382,6 +383,7 @@ export default {
       kitchenLit: false,
       manilaFixed: false,
       flashlightFixed: false,
+      flashlightFlicker: false,
       dumagueteFixed: false,
       mindanaoLit: false,
       mindanaoFixed: false,
@@ -404,9 +406,11 @@ export default {
         : (this.kitchenNotInFrame = true);
     },
     kitchenLitScroll() {
-      document.getElementById('kitchen-candle').getBoundingClientRect().top - 80 
-        <= document.getElementById('kitchen-2').getBoundingClientRect().top ?
-        this.kitchenLit = true : this.kitchenLit = false
+      document.getElementById("kitchen-candle").getBoundingClientRect().top -
+        80 <=
+      document.getElementById("kitchen-2").getBoundingClientRect().top
+        ? (this.kitchenLit = true)
+        : (this.kitchenLit = false);
     },
     manilaScroll() {
       document.getElementById("manilatxt").getBoundingClientRect().top -
@@ -421,16 +425,37 @@ export default {
         : (this.manilaFixed = false);
     },
     flashlightScroll() {
-      document.getElementById("flashlighttxt").getBoundingClientRect().top -
-        document.getElementById("flashlighttxt").getBoundingClientRect()
-          .height <
+      var flashlighttxt = document.getElementById("flashlighttxt")
+      if(
+      flashlighttxt.getBoundingClientRect().top -
+        flashlighttxt.getBoundingClientRect()
+          .height / 1.8 <
         0 &&
-      document.getElementById("flashlighttxt").getBoundingClientRect().bottom -
-        document.getElementById("flashlighttxt").getBoundingClientRect()
-          .height >
+      flashlighttxt.getBoundingClientRect().bottom -
+        flashlighttxt.getBoundingClientRect()
+          .height / 1.8 >
         0
-        ? (this.flashlightFixed = true)
-        : (this.flashlightFixed = false);
+      ) {
+        this.flashlightFixed = true;
+      }
+      else {
+        this.flashlightFixed = false;
+      }
+      if(
+      flashlighttxt.getBoundingClientRect().top -
+        flashlighttxt.getBoundingClientRect()
+          .height / 2.3 <
+        0 &&
+      flashlighttxt.getBoundingClientRect().bottom -
+        flashlighttxt.getBoundingClientRect()
+          .height / 2.3 >
+        0
+      ) {
+        this.flashlightFlicker = true;
+      }
+      else {
+        this.flashlightFlicker = false;
+      }
     },
     dumagueteScroll() {
       document.getElementById("dumaguetetxt").getBoundingClientRect().top -
@@ -446,11 +471,13 @@ export default {
       const loweredPower = document.getElementById("lowered-power-supply");
       // console.log("power: " + loweredPower)
       // console.log("window: " + window.innerHeight)
-      if(loweredPower) {
-        if(window.innerHeight/2 >= loweredPower.getBoundingClientRect().top) {
+      if (loweredPower) {
+        if (
+          window.innerHeight / 2 >=
+          loweredPower.getBoundingClientRect().top
+        ) {
           this.mindanaoLit = true;
-        }
-        else {
+        } else {
           this.mindanaoLit = false;
         }
       }
@@ -554,6 +581,44 @@ export default {
   overflow: hidden;
 }
 
+.flashlight {
+  width: auto;
+  height: 500px;
+  // transform: rotate(245deg);
+  // left: 30%;
+  // margin-top: -3rem;
+  background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight ON.png');
+  background-size: cover;
+  background-position: 10%;
+
+  &.flashlightFlicker {
+      background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
+  }
+}
+
+.flashlightFlicker {
+    animation-name: lightFlicker;
+    animation-duration: 1s;
+}
+
+@keyframes lightFlicker {
+    0% {
+        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
+    }
+
+    33% {
+        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
+    }
+
+    66% {
+        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
+    }
+
+    100% {
+        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
+    }
+}
+
 .ptchblk--2 {
   .manila {
     width: 85%;
@@ -576,13 +641,5 @@ export default {
 .mindanao {
   width: 80%;
   height: 100%;
-}
-
-.flashlight {
-  width: auto;
-  height: 500px;
-  transform: rotate(245deg);
-  left: 60%;
-  margin-top: -8rem;
 }
 </style>
