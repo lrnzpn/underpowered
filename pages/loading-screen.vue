@@ -2,8 +2,8 @@
   <div class="loading-screen">
       <div class="loading-screen-header center flex-column mt-7 mb-7">
             <h1 class="mb-1">Loading Screen</h1>
-            <img v-if="this.windowWidth > 991"  :src="require('../assets/02 Loading Screen/GIF/01-Loading.gif')" alt="loading...">
-            <img v-else :src="require('../assets/02 Loading Screen/PNG/01 Loading.png')" alt="loading...">
+            <img v-if="this.windowWidth > 991"  :src="require('../assets/02 Loading Screen/GIF/01-Loading-edited.gif')" alt="loading...">
+            <img v-else :src="require('../assets/02 Loading Screen/PNG/01-Loading-txt.png')" alt="loading...">
       </div>
 
       <div class="ls ls--1 mb-7 pb-5">
@@ -235,6 +235,10 @@ export default {
         @include screen('md') {
             width: 300px;
         }
+    }
+
+    @include screen('md') {
+        margin-bottom: 0em;
     }
 }
 
