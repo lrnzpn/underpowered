@@ -169,11 +169,8 @@
             with electricity.
           </p>
           <div class="flashlight-container mb-7">
-            <img
-              class="flashlight"
-              :src="
-                require('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
-              "
+            <div
+              class="flashlight-mobile"
               alt="Flashlight"
             />
           </div>
@@ -349,10 +346,10 @@
     <div v-else class="ptchblk ptchblk--4 center">
       <div class="content-wrapper">
         <div class="container">
-          <div class="mindanao-container mb-7 pb-7">
+          <div class="mindanao-container mb-7">
             <img
-              class="mindanao mobile"
-              :src="require('../assets/03 Pitch Black/PNG/04 Mindanao.png')"
+              class="mindanao"
+              :src="require('../assets/03 Pitch Black/PNG/04 Mindanao Complete.png')"
               alt="powerbank"
             />
           </div>
@@ -559,6 +556,7 @@ export default {
   width: 25%;
   padding-bottom: 15rem;
   padding-top: 2rem;
+  overflow: hidden;
 
   &.sticky {
     top: 20%;
@@ -623,6 +621,16 @@ export default {
   &.flashlightFlicker {
       background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
   }
+}
+
+.flashlight-mobile {
+  width: auto;
+  height: 300px;
+  background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png');
+  background-size: 130%;
+  background-position: 5%;
+  background-repeat: no-repeat;
+  // transform: rotate(245deg);
 }
 
 .flashlightFlicker {

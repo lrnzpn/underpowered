@@ -41,7 +41,7 @@
         </transition>
       </div>
     </div>
-    <div v-else class="haywire haywire--1 center">
+    <div v-else class="haywire haywire--1 center mobile">
       <div class="content-wrapper">
         <div class="container">
           <div class="pen-container jc-flex-end mb-5">
@@ -138,16 +138,16 @@
         </transition>
       </div>
     </div>
-    <div v-else class="haywire haywire--1 center">
+    <div v-else class="haywire haywire--2 center">
       <div class="content-wrapper">
+        <div class="canvas-container mb-3">
+          <img
+            class="canvas-1 mobile"
+            :src="require('../assets/04 Go Haywire/PNG/03c Phone OFF.png')"
+            alt="Phone"
+          />
+        </div>
         <div class="container">
-          <div class="canvas-container mb-3">
-            <img
-              class="canvas-1 mobile"
-              :src="require('../assets/04 Go Haywire/PNG/03a Phone 110.png')"
-              alt="Phone"
-            />
-          </div>
           <p class="mb-5">
             At 1:10 AM Cortez is, if not fast asleep, presumably winding down to
             do so. With no threat of future power interruptions in sight, he
@@ -189,7 +189,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="haywire haywire--1 center">
+    <div v-else class="haywire haywire--3 center mt-6">
       <div class="content-wrapper">
         <div class="container">
           <div class="canvas-container center mb-6">
@@ -242,16 +242,16 @@
         </transition>
       </div>
     </div>
-    <div v-else class="haywire haywire--1 center">
+    <div v-else class="haywire haywire--4 center">
       <div class="content-wrapper">
+        <div class="prescription-container mobile">
+          <img
+            class="prescription"
+            :src="require('../assets/04 Go Haywire/PNG/05b Prescription FILLED.png')"
+            alt="Prescription"
+          />
+        </div>
         <div class="container">
-          <div class="prescription-container mobile">
-            <img
-              class="prescription"
-              :src="require('../assets/04 Go Haywire/PNG/05a Prescription.png')"
-              alt="Prescription"
-            />
-          </div>
           <Quotation>
             <p>
               She says, “I don’t want to push my health just so I can get a
@@ -473,6 +473,10 @@ export default {
   &--1 {
     margin-top: 10em;
 
+    &.mobile {
+      margin-top: 0;
+    }
+
     .sticky {
       top: 20%;
     }
@@ -535,7 +539,7 @@ export default {
   &.mobile {
     width: 60%;
     height: auto;
-    margin-left: -2rem;
+    margin-left: -4rem;
   }
 }
 
