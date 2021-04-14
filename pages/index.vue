@@ -81,11 +81,23 @@
       <section id="loading-screen" class="pt-80px">
           <LoadingScreen />
       </section>
+      <section id="pitch-black">
+          <PitchBlack />
+      </section>
+      <section id="go-haywire">
+          <GoHaywire />
+      </section>
+      <section id="lighting-way">
+          <LightingWay />
+      </section>
   </main>
 </template>
 
 <script>
 import Unplugged from './unplugged.vue'
+import PitchBlack from './pitch-black.vue'
+import GoHaywire from './go-haywire.vue'
+import LightingWay from './lighting-the-way.vue'
 import LoadingScreen from './loading-screen.vue'
 export default {
     data() {
@@ -106,6 +118,9 @@ export default {
     },
     components: {
         Unplugged,
+        PitchBlack,
+        GoHaywire,
+        LightingWay,
         LoadingScreen
     },
     methods: {
