@@ -4,14 +4,21 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'underpowered',
+    title: 'Underpowered',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Underpowered by Kris M. Fetiza, Derick M. Gabrillo, and Zachary C. Gonzales' },
+      { property: "og:title", content: "Underpowered"
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "" },
+      { property: "og:description", content: "Underpowered" },
+      { property: "og:url", content: "" }
+
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
