@@ -1,7 +1,10 @@
 <template>
   <div>
-      <Navigation />
-      <div class="spacer"></div>
+        <transition name="fade">
+            <Loading v-if="showHideSpinner"/>
+        </transition>
+        <Navigation />
+        <div class="spacer"></div>
         <Nuxt />
         <Footer />
   </div>
@@ -9,11 +12,28 @@
 
 <script>
 import Navigation from '../components/Navigation'
+import Loading from '../components/Loading'
+import Footer from '../components/Footer'
 
 export default {
     components: {
-        Navigation
+        Navigation,
+        Loading,
+        Footer
     },
+    beforeCreate() {
+        this.showHideSpinner = true;
+    },
+    mounted() {
+        setTimeout(() => {
+            this.showHideSpinner = false;
+        }, 3000)
+    },
+    data() {
+        return {
+        showHideSpinner: true
+        };
+    }
 }
 </script>
 
@@ -280,4 +300,15 @@ p {
         padding-top: 3.25em;
     }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .75s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 </style>
