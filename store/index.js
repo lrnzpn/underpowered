@@ -1,6 +1,7 @@
 export const state = () => ({
     isNavOpen: false,
-    windowWidth: 0
+    windowWidth: 0,
+    active: 0
 })
 
 export const mutations = {
@@ -12,5 +13,8 @@ export const mutations = {
     },
     setWidth(state, width) {
         state.windowWidth = width
+    },
+    setActive(state, active) {
+        state.active = active
     }
 }

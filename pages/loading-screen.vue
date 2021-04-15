@@ -1,6 +1,6 @@
 <template>
   <div class="loading-screen">
-      <div class="loading-screen-header center flex-column mt-7 mb-7">
+      <div class="loading-screen-header center flex-column mt-7 mb-7 pt-6">
             <h1 class="mb-1">Loading Screen</h1>
             <img v-if="this.windowWidth > 991"  :src="require('../assets/02 Loading Screen/GIF/01-Loading-edited.gif')" alt="loading...">
             <img v-else :src="require('../assets/02 Loading Screen/PNG/01-Loading-txt.png')" alt="loading...">

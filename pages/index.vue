@@ -75,10 +75,10 @@
             </div>
 
       </section>
-      <section id="unplugged" class="pt-80px">
+      <section id="unplugged">
           <Unplugged />
       </section>
-      <section id="loading-screen" class="pt-80px">
+      <section id="loading-screen">
           <LoadingScreen />
       </section>
       <section id="pitch-black">
@@ -87,7 +87,7 @@
       <section id="go-haywire">
           <GoHaywire />
       </section>
-      <section id="lighting-way">
+      <section id="lighting-the-way">
           <LightingWay />
       </section>
   </main>
@@ -114,6 +114,8 @@ export default {
                 expand: 'https://www.manilatimes.net/2020/10/03/business/business-top/pandemic-to-keep-stalling-growth-in-ph-power-sector/775463/',
             },
             flicker: false,
+            currentHash: null,
+
         }
     },
     components: {
@@ -142,11 +144,42 @@ export default {
             } catch {
 
             }
+        },
+        activeScroll() {
+            let sections = document.getElementsByTagName("section")
+            try {
+                for (
+                    let i = 0;
+                    i < sections.length;
+                    i++
+                ) {
+                    let el = sections[i];
+                    let rect = el.getBoundingClientRect()
+                    if(rect.bottom - 80 > 0) {
+                        this.$store.commit('setActive', i)
+                        break;
+                    }
+                }
+            } catch {}    
+        },
+        changeURL() {
+            let sections = document.getElementsByTagName("section")
+            let hash = sections[this.getActive].getAttribute('id')
+            // this.$router.push({ name: this.$route.name, hash: `#${hash}` })
+        }
+    },
+    computed: {
+        getActive() {
+            return this.$store.state.active
         }
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
+        window.addEventListener('scroll', () => {
+            this.activeScroll()
+            // this.changeURL()
+        });
     },
     updated() {
         window.addEventListener('scroll', () => {
@@ -157,6 +190,7 @@ export default {
     },
     beforeDestroy () {
         window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('scroll', this.activeScroll);
     },
 }
 </script>
@@ -170,7 +204,10 @@ export default {
 }
 
 .banner-container {
-    
+    padding-bottom: 5em;
+    @include screen('md') {
+        padding-bottom: 3.25em;
+    }
     img {
         width: 100%;
         height: auto;

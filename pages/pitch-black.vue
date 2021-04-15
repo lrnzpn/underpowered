@@ -409,7 +409,8 @@ export default {
       this.windowWidth = window.innerWidth;
     },
     kitchenScroll() {
-      document.getElementById("kitchentxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("kitchentxt").getBoundingClientRect().top -
         document.getElementById("kitchentxt").getBoundingClientRect().height /
           2 <
         0 &&
@@ -419,16 +420,20 @@ export default {
         0
         ? (this.kitchenNotInFrame = false)
         : (this.kitchenNotInFrame = true);
+      } catch {}
     },
     kitchenLitScroll() {
-      document.getElementById("kitchen-candle").getBoundingClientRect().top -
+      try {
+          document.getElementById("kitchen-candle").getBoundingClientRect().top -
         80 <=
       document.getElementById("kitchen-2").getBoundingClientRect().top
         ? (this.kitchenLit = true)
         : (this.kitchenLit = false);
+      } catch {}
     },
     manilaScroll() {
-      document.getElementById("manilatxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("manilatxt").getBoundingClientRect().top -
         document.getElementById("manilatxt").getBoundingClientRect().height /
           2 <
         0 &&
@@ -438,9 +443,11 @@ export default {
         0
         ? (this.manilaFixed = true)
         : (this.manilaFixed = false);
+      } catch {}
     },
     flashlightScroll() {
-      var flashlighttxt = document.getElementById("flashlighttxt")
+      try {
+          var flashlighttxt = document.getElementById("flashlighttxt")
       if(
       flashlighttxt.getBoundingClientRect().top -
         flashlighttxt.getBoundingClientRect()
@@ -471,9 +478,11 @@ export default {
       else {
         this.flashlightFlicker = false;
       }
+      } catch {}
     },
     dumagueteScroll() {
-      document.getElementById("dumaguetetxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("dumaguetetxt").getBoundingClientRect().top -
         document.getElementById("dumaguetetxt").getBoundingClientRect().height <
         0 &&
       document.getElementById("dumaguetetxt").getBoundingClientRect().bottom -
@@ -492,9 +501,11 @@ export default {
       else {
         this.dumagueteStatus = 0;
       }
+      } catch {}
     },
     mindanaoLitScroll() {
-      const loweredPower = document.getElementById("lowered-power-supply");
+      try {
+          const loweredPower = document.getElementById("lowered-power-supply");
       // console.log("power: " + loweredPower)
       // console.log("window: " + window.innerHeight)
       if (loweredPower) {
@@ -507,9 +518,11 @@ export default {
           this.mindanaoLit = false;
         }
       }
+      } catch {}
     },
     mindanaoScroll() {
-      document.getElementById("mindanaotxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("mindanaotxt").getBoundingClientRect().top -
         document.getElementById("mindanaotxt").getBoundingClientRect().height /
           2 <
         0 &&
@@ -519,6 +532,7 @@ export default {
         0
         ? (this.mindanaoFixed = true)
         : (this.mindanaoFixed = false);
+      } catch {}
     },
   },
   mounted() {

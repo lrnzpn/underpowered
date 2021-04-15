@@ -1,7 +1,7 @@
 <template>
   <div class="gohaywire">
     <div
-      class="haywire-header center mt-7 mb-6"
+      class="haywire-header center mt-7 mb-6 pt-7"
       v-bind:class="{ mobile: this.windowWidth <= 991 }"
     >
       <div class="sparks-1"></div>
@@ -317,6 +317,7 @@
         </div>
       </div>
     </div>
+    <div class="lighting-gradient"></div>
   </div>
 </template>
 
@@ -340,20 +341,25 @@ export default {
   methods: {
     handleResize() {
       this.windowWidth = window.innerWidth;
-      console.log(this.windowWidth);
+    //   console.log(this.windowWidth);
     },
     penScroll() {
-      document.getElementById("pentxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("pentxt").getBoundingClientRect().top -
         document.getElementById("pentxt").getBoundingClientRect().height / 1.5 <
-        0 &&
-      document.getElementById("pentxt").getBoundingClientRect().bottom -
+            0 &&
+        document.getElementById("pentxt").getBoundingClientRect().bottom -
         document.getElementById("pentxt").getBoundingClientRect().height / 1.5 >
         0
         ? (this.penFixed = true)
         : (this.penFixed = false);
+      } catch {
+
+      }
     },
     gadgetScroll() {
-      document.getElementById("gadgettxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("gadgettxt").getBoundingClientRect().top -
         document.getElementById("gadgettxt").getBoundingClientRect().height /
           3 <
         0 &&
@@ -363,6 +369,7 @@ export default {
         0
         ? (this.gadgetFixed = true)
         : (this.gadgetFixed = false);
+      } catch {}
     },
     gadgetChangeScroll() {
       if (
@@ -401,7 +408,8 @@ export default {
       }
     },
     prescriptionScroll() {
-      document.getElementById("prescriptiontxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("prescriptiontxt").getBoundingClientRect().top -
         document.getElementById("prescriptiontxt").getBoundingClientRect()
           .height /
           1.5 <
@@ -414,6 +422,7 @@ export default {
         0
         ? (this.prescriptionFixed = true)
         : (this.prescriptionFixed = false);
+      } catch {}
     },
   },
   mounted() {
@@ -437,7 +446,6 @@ export default {
 
 <style lang="scss" scoped>
 .haywire-header {
-  margin-top: 10rem;
   height: 200px;
   display: flex;
 
@@ -560,5 +568,16 @@ export default {
 .canvas-container,
 .prescription-container {
   overflow: hidden;
+}
+
+.lighting-gradient {
+  background: linear-gradient(
+    180deg,
+    #01192f 9.02%,
+    #808a8f 51.64%,
+    #c6c8c4 75.17%,
+    #fffbef 94.26%
+  );
+  height: 300px;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div class="lightingway">
-    <div class="lighting-gradient"></div>
     <div
       class="lighting-header"
       v-bind:class="{ mobile: this.windowWidth <= 991 }"
@@ -9,7 +8,7 @@
     </div>
     <div
       v-if="this.windowWidth > 991"
-      class="lighting lighting--1 jc-sb-ai-fs mb-7 pb-7"
+      class="lighting lighting--1 jc-sb-ai-fs mb-7 pb-7 mt-3"
     >
       <div class="txt-wrapper px-3p w-50" id="planttxt">
         <p class="mb-5">
@@ -251,10 +250,10 @@ export default {
   methods: {
     handleResize() {
       this.windowWidth = window.innerWidth;
-      console.log(this.windowWidth);
     },
     plantScroll() {
-      document.getElementById("planttxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("planttxt").getBoundingClientRect().top -
         document.getElementById("planttxt").getBoundingClientRect().height / 3 <
         0 &&
       document.getElementById("planttxt").getBoundingClientRect().bottom -
@@ -262,9 +261,11 @@ export default {
         0
         ? (this.plantFixed = true)
         : (this.plantFixed = false);
+      } catch {}
     },
     planScroll() {
-      document.getElementById("plantxt").getBoundingClientRect().top -
+      try {
+          document.getElementById("plantxt").getBoundingClientRect().top -
         document.getElementById("plantxt").getBoundingClientRect().height / 2 <
         0 &&
       document.getElementById("plantxt").getBoundingClientRect().bottom -
@@ -272,6 +273,7 @@ export default {
         0
         ? (this.planFixed = true)
         : (this.planFixed = false);
+      } catch {}
     },
   },
   mounted() {
@@ -294,18 +296,6 @@ export default {
 h1,
 p {
   color: $txt-lights-on;
-}
-
-.lighting-gradient {
-  background: linear-gradient(
-    180deg,
-    #01192f 9.02%,
-    #808a8f 51.64%,
-    #c6c8c4 75.17%,
-    #fffbef 94.26%
-  );
-  height: 300px;
-  margin-bottom: 2rem;
 }
 
 .lightingway {

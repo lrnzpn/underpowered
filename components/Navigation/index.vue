@@ -2,16 +2,18 @@
   <transition name="slide">
       <header class="nav-container">
           <nav class="nav-header container jc-space-between">
-              <nuxt-link to="/" class="logo-wrapper">
+              <nuxt-link to="/" class="logo-wrapper" @click.native="scrollToTop">
                   <div class="logo static"></div>
               </nuxt-link>
-
               <Burger />
           </nav>
           <Menu>
               <ul class="menu-nav">
                   <li v-for="(route,idx) in router" :key="idx">
-                      <nuxt-link :to="route.path" >{{route.section}}</nuxt-link>
+                      <span
+                        @click="goto(route.path)"
+                        :class="{'nuxt-link-active nuxt-link-exact-active': getActive == route.idx}"
+                        >{{route.section}}</span>
                   </li>
               </ul>
           </Menu>
@@ -33,31 +35,55 @@ export default {
             router: [
                 {
                     section: 'Unplugged',
-                    path: '/#unplugged'
+                    path: 'unplugged',
+                    idx: 1
                 },
                 {
                     section: 'Loading Screen',
-                    path: '/#loading-screen'
+                    path: 'loading-screen',
+                    idx: 2
                 },
                 {
                     section: 'Pitch black',
-                    path: '/#pitch-black'
+                    path: 'pitch-black',
+                    idx: 3
                 },
                 {
                     section: 'Go haywire',
-                    path: '/#go-haywire'
+                    path: 'go-haywire',
+                    idx: 4
                 },
                 {
                     section: 'Lighting the Way',
-                    path: '/#lighting-the-way'
+                    path: 'lighting-the-way',
+                    idx: 5
                 },
             ]
         }
     },
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0, 0)
+        },
+        goto(path) {
+            let el = document.getElementById(path)
+            let top = el.offsetTop;
+            window.scrollTo({top:(0, top), behavior: 'smooth'});
+            this.$store.commit('setNavState', false);
+        },
+    },
     computed: {
-        
-    }
+        isMenuOpen() {
+            return this.$store.state.isNavOpen;
+        },
+        getActive() {
+            return this.$store.state.active
+        }
+    },
 }
+// just in case :)
+// https://shouts.dev/vuejs-scroll-to-elements-on-the-page
+// https://dev.to/dimer191996/nuxt-js-smooth-scrolling-with-hash-links-94a
 </script>
 
 <style lang="scss" scoped>
@@ -96,9 +122,11 @@ export default {
     margin-bottom: 2.5rem;
     li {
         margin-bottom: 2.5rem;
-        a {
+        span {
             color: $bg-lights-on;
             font-size: $font-size--5;
+            cursor: pointer;
+
             &:hover {
                 color: $asset-yellow;
             }
