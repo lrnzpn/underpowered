@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main" style="overflow: hidden">
         <transition name="fade">
             <Loading v-if="showHideSpinner"/>
         </transition>
@@ -22,15 +22,14 @@ export default {
         Footer
     },
     beforeCreate() {
-        this.showHideSpinner = true;
-        
+        this.showHideSpinner = true;   
     },
     mounted() {
-        document.querySelector("body").style.overflowY = "hidden";
+        // document.getElementById("main").style.overflowY = "hidden";
         setTimeout(() => {
             this.showHideSpinner = false;
-            document.querySelector("body").removeAttribute("style");
-        }, 2000)
+            document.getElementById("main").removeAttribute("style");
+        }, 5000)
     },
     data() {
         return {

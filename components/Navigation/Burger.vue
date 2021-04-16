@@ -10,7 +10,7 @@
             <!-- section button menu -->
             <button 
             class="btn sect-btn" 
-            :class="{ 'active' : isBurgerActive, 'hover' : !isBurgerActive }" 
+            :class="{ 'active' : isBurgerActive }" 
             @click.prevent="toggle">
                 <span v-if="!isBurgerActive">View Sections</span>
                 <span v-else>Close</span>
@@ -58,13 +58,13 @@ button {
         display: none;
     }
 
-    &.hover:hover {
+    &:hover {
         background: $txt-lights-off;
         border: 3px solid $txt-lights-off;
         box-sizing: border-box;
         box-shadow: 0px 0px 10px rgba(251, 222, 68, 0.6);
         border-radius: 5px;
-
+        transition: 300ms ease-in-out background;
         span {
             color: $txt-lights-on;
         }
