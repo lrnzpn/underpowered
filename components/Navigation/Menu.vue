@@ -65,12 +65,12 @@ export default {
   top: 0;
   height: 100vh;
   z-index: 99;
-  width: 33%;
+  width: 27.5vw;
   border: 1px solid $asset-black;
 
     @include screen('md') {
         top: 3.25em;
-        width: 75%;
+        width: 60vw;
     }
 
 }

@@ -201,6 +201,10 @@ export default {
     background-image: url('~assets/01 Intro _ Unplugged/underpowered-banner.png');
     width: 100%;
     height: 425px;
+
+    @include screen('xs') {
+        height: 325px;
+    }
 }
 
 .banner-container {
