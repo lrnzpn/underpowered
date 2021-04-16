@@ -29,7 +29,7 @@ export default {
         setTimeout(() => {
             this.showHideSpinner = false;
             document.getElementById("main").removeAttribute("style");
-        }, 5000)
+        }, 1000)
     },
     data() {
         return {
