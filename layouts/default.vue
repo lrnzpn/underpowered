@@ -23,15 +23,18 @@ export default {
     },
     beforeCreate() {
         this.showHideSpinner = true;
+        
     },
     mounted() {
+        document.querySelector("body").style.overflowY = "hidden";
         setTimeout(() => {
             this.showHideSpinner = false;
+            document.querySelector("body").removeAttribute("style");
         }, 2000)
     },
     data() {
         return {
-        showHideSpinner: true
+            showHideSpinner: true
         };
     }
 }
