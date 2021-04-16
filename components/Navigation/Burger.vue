@@ -8,7 +8,10 @@
                     <div class="burger-bar burger-bar--3"></div>
             </button>
             <!-- section button menu -->
-            <button class="btn sect-btn" :class="{active: isBurgerActive}" @click.prevent="toggle">
+            <button 
+            class="btn sect-btn" 
+            :class="{ 'active' : isBurgerActive, 'hover' : !isBurgerActive }" 
+            @click.prevent="toggle">
                 <span v-if="!isBurgerActive">View Sections</span>
                 <span v-else>Close</span>
             </button>
@@ -53,6 +56,18 @@ button {
 
     @include screen('md') {
         display: none;
+    }
+
+    &.hover:hover {
+        background: $txt-lights-off;
+        border: 3px solid $txt-lights-off;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 10px rgba(251, 222, 68, 0.6);
+        border-radius: 5px;
+
+        span {
+            color: $txt-lights-on;
+        }
     }
 }
 

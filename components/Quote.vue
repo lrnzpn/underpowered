@@ -18,6 +18,7 @@ export default {
     background-color: $asset-purple;
     height: 1.25em;
     width: 270px;
+    margin-top: 1.5em;
 
     @include screen('md') {
         width: 80%;

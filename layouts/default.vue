@@ -27,7 +27,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.showHideSpinner = false;
-        }, 3000)
+        }, 2000)
     },
     data() {
         return {

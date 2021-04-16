@@ -43,6 +43,7 @@ footer {
     p {
         text-align: center;
         margin: 5px 0;
+        line-height: 1.25em;
     }
 
     span, p {
