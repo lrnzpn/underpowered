@@ -42,6 +42,7 @@ export default {
     .qt-content {
         position: absolute;
         width: 60vw;
+        max-width: 57.5vw;
 
         @include screen ('lg') {
             width: 55vw;
@@ -50,6 +51,7 @@ export default {
         @include screen('md') {
             position: relative;
             width: 100%;
+            max-width: 100%;
         }
 
         p {

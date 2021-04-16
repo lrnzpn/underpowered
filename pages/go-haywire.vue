@@ -497,7 +497,11 @@ export default {
         width: 120%;
 
         &.mobile {
-          height: 150px;
+            width: 100%;
+          height: 300px;
+            @include screen('sm') {
+                height: auto;
+            }
         }
       }
     }
@@ -517,11 +521,22 @@ export default {
         width: 60%;
         transform: rotate(340deg);
         left: 50%;
+
+        @include screen('md') {
+            width: 50%;
+            left: 60%;
+        }
+
+        @include screen('xs') {
+            width: 40%;
+            left: 70%;
+        }
       }
 
       &.mobile {
         height: 350px;
         padding-top: 1rem;
+        padding-bottom: 1rem;
       }
     }
   }
@@ -541,8 +556,11 @@ export default {
 
 .canvas-1 {
   width: 100%;
-  height: 400px;
   object-fit: cover;
+    height: auto;
+    @media only screen and (max-width: 1440px) {
+        height: 400px;
+    }
 
   &.mobile {
     width: 60%;
