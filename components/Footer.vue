@@ -38,12 +38,14 @@ footer {
         display: block;
         text-transform: uppercase;
         margin: 1.5rem 0 1rem 0;
+        letter-spacing: .12em;
     }
 
     p {
         text-align: center;
         margin: 5px 0;
         line-height: 1.25em;
+        letter-spacing: auto;
     }
 
     span, p {
