@@ -49,7 +49,7 @@ footer {
     span, p {
         font-family: 'Chivo', sans-serif !important;
         font-size: $font-size--3;
-        font-weight: 300;
+        font-weight: 400;
     }
 }
 </style>
