@@ -55,10 +55,10 @@ export default {
         }
 
         p {
-            font-size: 1.75em;
+            font-size: $font-size--6;
 
             @include screen('lg') {
-                font-size: 1.5em;
+                font-size: $font-size--5;
             }
 
             @include screen('md') {
