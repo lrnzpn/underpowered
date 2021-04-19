@@ -374,7 +374,7 @@
             nonetheless are able to work on their online modules almost
             unimpeded.
           </p>
-          <p class="mb-5">
+          <p>
             Ignacio shared that studying is easier compared to other activities
             at night since his devices generate their own light—granted they
             were charged and online data was purchased beforehand. However, this

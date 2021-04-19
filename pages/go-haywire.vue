@@ -1,7 +1,7 @@
 <template>
   <div class="gohaywire">
     <div
-      class="haywire-header center mt-7 mb-6 pt-7"
+      class="haywire-header center mt-7 mb-6"
       v-bind:class="{ mobile: this.windowWidth <= 991 }"
     >
       <div class="sparks-1"></div>
@@ -448,6 +448,11 @@ export default {
 .haywire-header {
   height: 200px;
   display: flex;
+  padding-top: 4em;
+
+  @include screen('md') {
+      padding-top: 2em;
+  }
 
   h1 {
     width: 300px;
@@ -460,6 +465,7 @@ export default {
     background-image: url("../assets/04 Go Haywire/SVG/01 Sparks White.svg");
     background-size: cover;
     background-position: right;
+    background-repeat: no-repeat;
   }
 
   .flipped {
