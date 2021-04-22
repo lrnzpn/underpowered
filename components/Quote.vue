@@ -41,11 +41,15 @@ export default {
 
     .qt-content {
         position: absolute;
-        width: 60vw;
-        max-width: 57.5vw;
+        width: 57.5vw;
+        
+        @media screen and (min-width: 1400px) {
+            max-width: 50vw;
+        }
 
         @include screen ('lg') {
             width: 55vw;
+            max-width: 55vw;
         }
 
         @include screen('md') {
