@@ -169,10 +169,7 @@
             with electricity.
           </p>
           <div class="flashlight-container mb-7">
-            <div
-              class="flashlight-mobile"
-              alt="Flashlight"
-            />
+            <div class="flashlight-mobile" alt="Flashlight" />
           </div>
         </div>
       </div>
@@ -187,10 +184,10 @@
           using a gas range if one is available.
         </p>
         <p class="mb-5">
-          <span id="power-outage">Power outages</span> take longer to fix in energy insecure areas and, at
-          times, can occur long throughout the night. Arbon Jr. recalled that
-          power interruptions can occur at any time—be it dawn, dusk, or in
-          between.
+          <span id="power-outage">Power outages</span> take longer to fix in
+          energy insecure areas and, at times, can occur long throughout the
+          night. Arbon Jr. recalled that power interruptions can occur at any
+          time—be it dawn, dusk, or in between.
         </p>
       </div>
       <div class="img-wrapper w-50">
@@ -199,7 +196,7 @@
             <div
               id="flashlight"
               class="flashlight"
-              :class="{ 'flashlightFlicker': this.flashlightFlicker }"
+              :class="{ flashlightFlicker: this.flashlightFlicker }"
               alt="Flashlight"
             />
           </div>
@@ -270,9 +267,9 @@
             Meanwhile, Arbon Jr.’s hometown—Dumaguete City—sources most of its
             electricity from geothermal and solar energy. Although mostly clean,
             the energy output from the nearby power plants is sometimes
-            <span id="insufficient">insufficient</span> and are subject to changes in weather. Recently, the
-            Negros Oriental II Electric Cooperative has been running on a daily
-            power deficit.
+            <span id="insufficient">insufficient</span> and are subject to
+            changes in weather. Recently, the Negros Oriental II Electric
+            Cooperative has been running on a daily power deficit.
           </p>
         </div>
       </div>
@@ -349,7 +346,9 @@
           <div class="mindanao-container mb-7">
             <img
               class="mindanao"
-              :src="require('../assets/03 Pitch Black/PNG/04 Mindanao Complete.png')"
+              :src="
+                require('../assets/03 Pitch Black/PNG/04 Mindanao Complete.png')
+              "
               alt="powerbank"
             />
           </div>
@@ -410,128 +409,124 @@ export default {
     },
     kitchenScroll() {
       try {
-          document.getElementById("kitchentxt").getBoundingClientRect().top -
-        document.getElementById("kitchentxt").getBoundingClientRect().height /
-          2 <
-        0 &&
-      document.getElementById("kitchentxt").getBoundingClientRect().bottom -
-        document.getElementById("kitchentxt").getBoundingClientRect().height /
-          2 >
-        0
-        ? (this.kitchenNotInFrame = false)
-        : (this.kitchenNotInFrame = true);
+        document.getElementById("kitchentxt").getBoundingClientRect().top -
+          document.getElementById("kitchentxt").getBoundingClientRect().height /
+            2 <
+          0 &&
+        document.getElementById("kitchentxt").getBoundingClientRect().bottom -
+          document.getElementById("kitchentxt").getBoundingClientRect().height /
+            2 >
+          0
+          ? (this.kitchenNotInFrame = false)
+          : (this.kitchenNotInFrame = true);
       } catch {}
     },
     kitchenLitScroll() {
       try {
-          document.getElementById("kitchen-candle").getBoundingClientRect().top -
-        80 <=
-      document.getElementById("kitchen-2").getBoundingClientRect().top
-        ? (this.kitchenLit = true)
-        : (this.kitchenLit = false);
+        document.getElementById("kitchen-candle").getBoundingClientRect().top -
+          80 <=
+        document.getElementById("kitchen-2").getBoundingClientRect().top
+          ? (this.kitchenLit = true)
+          : (this.kitchenLit = false);
       } catch {}
     },
     manilaScroll() {
       try {
-          document.getElementById("manilatxt").getBoundingClientRect().top -
-        document.getElementById("manilatxt").getBoundingClientRect().height /
-          2 <
-        0 &&
-      document.getElementById("manilatxt").getBoundingClientRect().bottom -
-        document.getElementById("manilatxt").getBoundingClientRect().height /
-          2 >
-        0
-        ? (this.manilaFixed = true)
-        : (this.manilaFixed = false);
+        document.getElementById("manilatxt").getBoundingClientRect().top -
+          document.getElementById("manilatxt").getBoundingClientRect().height /
+            2 <
+          0 &&
+        document.getElementById("manilatxt").getBoundingClientRect().bottom -
+          document.getElementById("manilatxt").getBoundingClientRect().height /
+            2 >
+          0
+          ? (this.manilaFixed = true)
+          : (this.manilaFixed = false);
       } catch {}
     },
     flashlightScroll() {
       try {
-          var flashlighttxt = document.getElementById("flashlighttxt")
-      if(
-      flashlighttxt.getBoundingClientRect().top -
-        flashlighttxt.getBoundingClientRect()
-          .height / 1.8 <
-        0 &&
-      flashlighttxt.getBoundingClientRect().bottom -
-        flashlighttxt.getBoundingClientRect()
-          .height / 1.8 >
-        0
-      ) {
-        this.flashlightFixed = true;
-      }
-      else {
-        this.flashlightFixed = false;
-      }
-      if(
-      flashlighttxt.getBoundingClientRect().top -
-        flashlighttxt.getBoundingClientRect()
-          .height / 2.3 <
-        0 &&
-      flashlighttxt.getBoundingClientRect().bottom -
-        flashlighttxt.getBoundingClientRect()
-          .height / 2.3 >
-        0
-      ) {
-        this.flashlightFlicker = true;
-      }
-      else {
-        this.flashlightFlicker = false;
-      }
+        var flashlighttxt = document.getElementById("flashlighttxt");
+        if (
+          flashlighttxt.getBoundingClientRect().top -
+            flashlighttxt.getBoundingClientRect().height / 1.8 <
+            0 &&
+          flashlighttxt.getBoundingClientRect().bottom -
+            flashlighttxt.getBoundingClientRect().height / 1.8 >
+            0
+        ) {
+          this.flashlightFixed = true;
+        } else {
+          this.flashlightFixed = false;
+        }
+        if (
+          flashlighttxt.getBoundingClientRect().top -
+            flashlighttxt.getBoundingClientRect().height / 2.3 <
+            0 &&
+          flashlighttxt.getBoundingClientRect().bottom -
+            flashlighttxt.getBoundingClientRect().height / 2.3 >
+            0
+        ) {
+          this.flashlightFlicker = true;
+        } else {
+          this.flashlightFlicker = false;
+        }
       } catch {}
     },
     dumagueteScroll() {
       try {
-          document.getElementById("dumaguetetxt").getBoundingClientRect().top -
-        document.getElementById("dumaguetetxt").getBoundingClientRect().height <
-        0 &&
-      document.getElementById("dumaguetetxt").getBoundingClientRect().bottom -
-        document.getElementById("dumaguetetxt").getBoundingClientRect().height >
-        0
-        ? (this.dumagueteFixed = true)
-        : (this.dumagueteFixed = false);
+        document.getElementById("dumaguetetxt").getBoundingClientRect().top -
+          document.getElementById("dumaguetetxt").getBoundingClientRect()
+            .height <
+          0 &&
+        document.getElementById("dumaguetetxt").getBoundingClientRect().bottom -
+          document.getElementById("dumaguetetxt").getBoundingClientRect()
+            .height >
+          0
+          ? (this.dumagueteFixed = true)
+          : (this.dumagueteFixed = false);
 
-      var insufficient = document.getElementById("insufficient");
-      if(insufficient.getBoundingClientRect().top > 500) {
-        this.dumagueteStatus = 2;
-      }
-      else if(insufficient.getBoundingClientRect().top > 400) {
-        this.dumagueteStatus = 1;
-      }
-      else {
-        this.dumagueteStatus = 0;
-      }
+        var insufficient = document.getElementById("insufficient");
+        if (insufficient.getBoundingClientRect().top > 500) {
+          this.dumagueteStatus = 2;
+        } else if (insufficient.getBoundingClientRect().top > 400) {
+          this.dumagueteStatus = 1;
+        } else {
+          this.dumagueteStatus = 0;
+        }
       } catch {}
     },
     mindanaoLitScroll() {
       try {
-          const loweredPower = document.getElementById("lowered-power-supply");
-      // console.log("power: " + loweredPower)
-      // console.log("window: " + window.innerHeight)
-      if (loweredPower) {
-        if (
-          window.innerHeight / 2 >=
-          loweredPower.getBoundingClientRect().top
-        ) {
-          this.mindanaoLit = true;
-        } else {
-          this.mindanaoLit = false;
+        const loweredPower = document.getElementById("lowered-power-supply");
+        // console.log("power: " + loweredPower)
+        // console.log("window: " + window.innerHeight)
+        if (loweredPower) {
+          if (
+            window.innerHeight / 2 >=
+            loweredPower.getBoundingClientRect().top
+          ) {
+            this.mindanaoLit = true;
+          } else {
+            this.mindanaoLit = false;
+          }
         }
-      }
       } catch {}
     },
     mindanaoScroll() {
       try {
-          document.getElementById("mindanaotxt").getBoundingClientRect().top -
-        document.getElementById("mindanaotxt").getBoundingClientRect().height /
-          2 <
-        0 &&
-      document.getElementById("mindanaotxt").getBoundingClientRect().bottom -
-        document.getElementById("mindanaotxt").getBoundingClientRect().height /
-          2 >
-        0
-        ? (this.mindanaoFixed = true)
-        : (this.mindanaoFixed = false);
+        document.getElementById("mindanaotxt").getBoundingClientRect().top -
+          document.getElementById("mindanaotxt").getBoundingClientRect()
+            .height /
+            2 <
+          0 &&
+        document.getElementById("mindanaotxt").getBoundingClientRect().bottom -
+          document.getElementById("mindanaotxt").getBoundingClientRect()
+            .height /
+            2 >
+          0
+          ? (this.mindanaoFixed = true)
+          : (this.mindanaoFixed = false);
       } catch {}
     },
   },
@@ -624,23 +619,30 @@ export default {
 
 .flashlight {
   width: auto;
-  height: 500px;
+  height: 40vw;
   // transform: rotate(245deg);
   // left: 30%;
   // margin-top: -3rem;
-  background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight ON.png');
+  background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight ON.png");
   background-size: cover;
   background-position: 10%;
 
   &.flashlightFlicker {
-      background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
+    background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight OFF.png");
   }
+}
+
+#flashlighttxt {
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .flashlight-mobile {
   width: auto;
   height: 300px;
-  background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png');
+  background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight OFF.png");
   background-size: 130%;
   background-position: 5%;
   background-repeat: no-repeat;
@@ -648,26 +650,26 @@ export default {
 }
 
 .flashlightFlicker {
-    animation-name: lightFlicker;
-    animation-duration: 1s;
+  animation-name: lightFlicker;
+  animation-duration: 1s;
 }
 
 @keyframes lightFlicker {
-    0% {
-        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
-    }
+  0% {
+    background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight ON.png");
+  }
 
-    33% {
-        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
-    }
+  33% {
+    background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight OFF.png");
+  }
 
-    66% {
-        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight ON.png')
-    }
+  66% {
+    background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight ON.png");
+  }
 
-    100% {
-        background-image: url('../assets/03 Pitch Black/PNG/05 Flashlight OFF.png')
-    }
+  100% {
+    background-image: url("../assets/03 Pitch Black/PNG/05 Flashlight OFF.png");
+  }
 }
 
 .ptchblk--2 {
