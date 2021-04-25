@@ -216,8 +216,8 @@
       <div class="txt-wrapper w-50 px-3p" id="prescriptiontxt">
         <Quotation>
           <p>
-            <span id="she-says">She says</span>, “I don’t want to push my health just so I can get a better
-            connection for myself.”
+            <span id="she-says">She says</span>, “I don’t want to push my health
+            just so I can get a better connection for myself.”
           </p>
         </Quotation>
       </div>
@@ -228,7 +228,9 @@
               v-if="this.prescriptionFilled"
               id="prescription"
               class="prescription"
-              :src="require('../assets/04 Go Haywire/PNG/05b Prescription FILLED.png')"
+              :src="
+                require('../assets/04 Go Haywire/PNG/05b Prescription FILLED.png')
+              "
               alt="Prescription"
             />
             <img
@@ -247,7 +249,9 @@
         <div class="prescription-container mobile">
           <img
             class="prescription"
-            :src="require('../assets/04 Go Haywire/PNG/05b Prescription FILLED.png')"
+            :src="
+              require('../assets/04 Go Haywire/PNG/05b Prescription FILLED.png')
+            "
             alt="Prescription"
           />
         </div>
@@ -341,34 +345,34 @@ export default {
   methods: {
     handleResize() {
       this.windowWidth = window.innerWidth;
-    //   console.log(this.windowWidth);
+      //   console.log(this.windowWidth);
     },
     penScroll() {
       try {
-          document.getElementById("pentxt").getBoundingClientRect().top -
-        document.getElementById("pentxt").getBoundingClientRect().height / 1.5 <
-            0 &&
+        document.getElementById("pentxt").getBoundingClientRect().top -
+          document.getElementById("pentxt").getBoundingClientRect().height /
+            1.5 <
+          0 &&
         document.getElementById("pentxt").getBoundingClientRect().bottom -
-        document.getElementById("pentxt").getBoundingClientRect().height / 1.5 >
-        0
-        ? (this.penFixed = true)
-        : (this.penFixed = false);
-      } catch {
-
-      }
+          document.getElementById("pentxt").getBoundingClientRect().height /
+            1.5 >
+          0
+          ? (this.penFixed = true)
+          : (this.penFixed = false);
+      } catch {}
     },
     gadgetScroll() {
       try {
-          document.getElementById("gadgettxt").getBoundingClientRect().top -
-        document.getElementById("gadgettxt").getBoundingClientRect().height /
-          3 <
-        0 &&
-      document.getElementById("gadgettxt").getBoundingClientRect().bottom -
-        document.getElementById("gadgettxt").getBoundingClientRect().height /
-          3 >
-        0
-        ? (this.gadgetFixed = true)
-        : (this.gadgetFixed = false);
+        document.getElementById("gadgettxt").getBoundingClientRect().top -
+          document.getElementById("gadgettxt").getBoundingClientRect().height /
+            3 <
+          0 &&
+        document.getElementById("gadgettxt").getBoundingClientRect().bottom -
+          document.getElementById("gadgettxt").getBoundingClientRect().height /
+            3 >
+          0
+          ? (this.gadgetFixed = true)
+          : (this.gadgetFixed = false);
       } catch {}
     },
     gadgetChangeScroll() {
@@ -398,30 +402,29 @@ export default {
     },
     prescriptionFilledScroll() {
       const sheSays = document.getElementById("she-says");
-      if(sheSays) {
-        if(window.innerHeight/2.5 >= sheSays.getBoundingClientRect().top) {
+      if (sheSays) {
+        if (window.innerHeight / 2.5 >= sheSays.getBoundingClientRect().top) {
           this.prescriptionFilled = true;
-        }
-        else {
+        } else {
           this.prescriptionFilled = false;
         }
       }
     },
     prescriptionScroll() {
       try {
-          document.getElementById("prescriptiontxt").getBoundingClientRect().top -
+        document.getElementById("prescriptiontxt").getBoundingClientRect().top -
+          document.getElementById("prescriptiontxt").getBoundingClientRect()
+            .height /
+            1.5 <
+          0 &&
         document.getElementById("prescriptiontxt").getBoundingClientRect()
-          .height /
-          1.5 <
-        0 &&
-      document.getElementById("prescriptiontxt").getBoundingClientRect()
-        .bottom -
-        document.getElementById("prescriptiontxt").getBoundingClientRect()
-          .height /
-          1.5 >
-        0
-        ? (this.prescriptionFixed = true)
-        : (this.prescriptionFixed = false);
+          .bottom -
+          document.getElementById("prescriptiontxt").getBoundingClientRect()
+            .height /
+            1.5 >
+          0
+          ? (this.prescriptionFixed = true)
+          : (this.prescriptionFixed = false);
       } catch {}
     },
   },
@@ -450,8 +453,8 @@ export default {
   display: flex;
   padding-top: 4em;
 
-  @include screen('md') {
-      padding-top: 2em;
+  @include screen("md") {
+    padding-top: 2em;
   }
 
   h1 {
@@ -503,11 +506,11 @@ export default {
         width: 120%;
 
         &.mobile {
-            width: 100%;
+          width: 100%;
           height: 300px;
-            @include screen('sm') {
-                height: auto;
-            }
+          @include screen("sm") {
+            height: auto;
+          }
         }
       }
     }
@@ -528,21 +531,23 @@ export default {
         transform: rotate(340deg);
         left: 50%;
 
-        @include screen('md') {
-            width: 50%;
-            left: 60%;
+        @include screen("md") {
+          width: 40%;
+          left: 70%;
+          top: 10%;
         }
 
-        @include screen('xs') {
-            width: 40%;
-            left: 70%;
+        @include screen("xs") {
+          width: 50%;
+          left: 70%;
         }
       }
 
       &.mobile {
-        height: 350px;
+        height: 80vw;
         padding-top: 1rem;
         padding-bottom: 1rem;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -563,10 +568,10 @@ export default {
 .canvas-1 {
   width: 100%;
   object-fit: cover;
-    height: auto;
-    @media only screen and (max-width: 1440px) {
-        height: 400px;
-    }
+  height: auto;
+  @media only screen and (max-width: 1440px) {
+    height: 400px;
+  }
 
   &.mobile {
     width: 60%;
