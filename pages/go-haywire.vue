@@ -523,7 +523,7 @@ export default {
 
     .prescription-container {
       height: fit-content;
-      padding-top: 2rem;
+      padding-top: 3.3rem;
       padding-bottom: 4rem;
 
       .prescription {
